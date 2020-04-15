@@ -45,7 +45,7 @@ var score = 0; // aantal behaalde punten
  * Tekent het speelveld
  */
 var tekenVeld = function () {
-  fill("black");
+  fill("purple");
   rect(20, 20, width - 2 * 20, height - 2 * 20);
 };
 
@@ -90,6 +90,10 @@ var beweegVijand = function() {
     
 };
 
+ if (key.code === 39) {
+        spelerX = spelerX + spelerBewegenX; 
+    }
+};
 
 /**
  * Updatet globale variabelen met positie van kogel of bal
@@ -103,13 +107,8 @@ var beweegKogel = function() {
  * Kijkt wat de toetsen/muis etc zijn.
  * Updatet globale variabele spelerX en spelerY
  */
+var beweegSpeler = function() {
 
-
-    
-
-if (key.code === 39) {
-    spelerX = spelerX + spelerBewegenX; 
-    }
 };
 
 
@@ -156,6 +155,7 @@ function setup() {
   // Kleur de achtergrond blauw, zodat je het kunt zien
   background('blue');
 }
+
 
 /**
  * draw
