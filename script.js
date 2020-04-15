@@ -23,8 +23,12 @@ var spelStatus = SPELEN;
 
 var spelerX = 200; // x-positie van speler
 var spelerY = 100; // y-positie van speler
-var spelerBewegenX = 5; // x-positie bewegen van speler
-var spelerBewegenY = 5; // y-positie bewegen van speler
+var spelerBewegenX = 5;
+var kogelX = 0;    // x-positie van kogel
+var kogelY = 0;    // y-positie van kogel
+
+var vijandX = 0;   // x-positie van vijand
+var vijandY = 0;   // y-positie van vijand
 
 var score = 0; // aantal behaalde punten
 
@@ -45,8 +49,31 @@ var tekenVeld = function () {
   rect(20, 20, width - 2 * 20, height - 2 * 20);
 };
 
+
 /**
- * Tekent de spelers
+ * Tekent de vijand
+ * @param {number} x x-coördinaat
+ * @param {number} y y-coördinaat
+ */
+var tekenVijand = function(x, y) {
+    
+
+};
+
+
+/**
+ * Tekent de kogel of de bal
+ * @param {number} x x-coördinaat
+ * @param {number} y y-coördinaat
+ */
+var tekenKogel = function(x, y) {
+
+
+};
+
+
+/**
+ * Tekent de speler
  * @param {number} x x-coördinaat
  * @param {number} y y-coördinaat
  */
@@ -55,9 +82,12 @@ var tekenSpeler = function(x, y) {
   ellipse(x, y, 50, 50);
 };
 
-var tekenSpeler = function(x, y) {
-  fill("white");
-  ellipse(x, y, 50, 50);
+
+/**
+ * Updatet globale variabelen met positie van vijand of tegenspeler
+ */
+var beweegVijand = function() {
+    
 };
 
 
@@ -65,10 +95,8 @@ var tekenSpeler = function(x, y) {
  * Updatet globale variabelen met positie van kogel of bal
  */
 var beweegKogel = function() {
-if(onkeydown ==  39) {
-    spelerX = spelerX + spelerBewegenX;  
-}
 
+};
 
 
 /**
@@ -77,6 +105,12 @@ if(onkeydown ==  39) {
  */
 
 
+    
+
+if (key.code === 39) {
+    spelerX = spelerX + spelerBewegenX; 
+    }
+};
 
 
 /**
@@ -115,8 +149,13 @@ var checkGameOver = function() {
  * de code in deze functie wordt één keer uitgevoerd door
  * de p5 library, zodra het spel geladen is in de browser
  */
+function setup() {
+  // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
+  createCanvas(1280, 720);
 
-
+  // Kleur de achtergrond blauw, zodat je het kunt zien
+  background('blue');
+}
 
 /**
  * draw
