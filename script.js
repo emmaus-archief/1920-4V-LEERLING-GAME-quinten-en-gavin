@@ -79,7 +79,7 @@ var tekenKogel = function(x, y) {
  * @param {number} y y-coördinaat
  */
 var tekenSpeler = function(x, y) {
-  fill("white");
+  fill("green");
   ellipse(x, y, 50, 50);
 };
 
@@ -88,7 +88,7 @@ var tekenSpeler = function(x, y) {
  * Updatet globale variabelen met positie van vijand of tegenspeler
  */
 var beweegVijand = function() {
-    
+   
 };
 
 
@@ -100,13 +100,40 @@ var beweegKogel = function() {
 };
 
 
+
+
+
+
+
+
+
+
+
+
 /**
  * Kijkt wat de toetsen/muis etc zijn.
  * Updatet globale variabele spelerX en spelerY
  */
-var beweegSpeler = function() {
+var beweegSpeler = function(){
+    if (keyIsDown(LEFT_ARROW)) {
+    spelerX -= 5;
+  }
+
+  if (keyIsDown(RIGHT_ARROW)) {
+    spelerX += 5;
+  }
+
+  if (keyIsDown(UP_ARROW)) {
+    spelerY -= 5;
+  }
+
+  if (keyIsDown(DOWN_ARROW)) {
+    spelerY += 5;
+  }
 
 };
+
+
 
 
 /**
