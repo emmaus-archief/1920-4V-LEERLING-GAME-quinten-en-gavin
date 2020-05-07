@@ -25,6 +25,8 @@ var spelStatus = SPELEN;
 var spelerX = 200; // x-positie van speler
 var spelerY = 100; // y-positie van speler
 
+var blauwAuto;
+
 var kogelX = 0;    // x-positie van kogel
 var kogelY = 0;    // y-positie van kogel
 
@@ -33,6 +35,10 @@ var vijandY = 0;   // y-positie van vijand
 
 var score = 0; // aantal behaalde punten
 
+
+function preload() {
+ blauwAuto = loadImage('afbeeldingen/blauwe_auto.png');
+}
 
 
 
@@ -78,10 +84,28 @@ var tekenKogel = function(x, y) {
  * @param {number} x x-coördinaat
  * @param {number} y y-coördinaat
  */
+
+
+
+
+
+
 var tekenSpeler = function(x, y) {
   fill("green");
-  ellipse(x, y, 50, 50);
+  //ellipse(x, y, 50, 50);
+    image(blauwAuto, x, y);
 };
+
+
+
+
+
+
+
+
+
+
+
 
 
 /**
@@ -130,8 +154,7 @@ var beweegSpeler = function(){
   if (keyIsDown(DOWN_ARROW)) {
     spelerY += 5;
   }
-
-};
+}
 
 
 
