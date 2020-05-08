@@ -23,14 +23,10 @@ var spelStatus = SPELEN;
 
 var spelerX = 200; // x-positie van speler
 var spelerY = 100; // y-positie van speler
-<<<<<<< HEAD
-var spelerBewegenX = 5;
-=======
 
 var blauwAuto;
 var groeneAuto;
 
->>>>>>> master
 var kogelX = 0;    // x-positie van kogel
 var kogelY = 0;    // y-positie van kogel
 
@@ -116,29 +112,8 @@ var tekenSpeler = function(x, y) {
  * Updatet globale variabelen met positie van vijand of tegenspeler
  */
 var beweegVijand = function() {
-     if (keyIsDown(65)) {
-    vijandX -= 5;
-  }
-
-  if (keyIsDown(68)) {
-    vijandX += 5;
-  }
-
-  if (keyIsDown(87)) {
-    vijandY -= 5;
-  }
-
-  if (keyIsDown(83)) {
-    vijandY += 5;
-  }
-}
-   
 };
 
- if (key.code === 39) {
-        spelerX = spelerX + spelerBewegenX; 
-    }
-};
 
 /**
  * Updatet globale variabelen met positie van kogel of bal
@@ -172,6 +147,7 @@ var beweegSpeler = function(){
 }
 
 
+};
 
 
 /**
@@ -190,7 +166,7 @@ var checkVijandGeraakt = function() {
  * @returns {boolean} true als speler is geraakt
  */
 var checkSpelerGeraakt = function() {
-    
+
   return false;
 };
 
@@ -200,7 +176,7 @@ var checkSpelerGeraakt = function() {
  * @returns {boolean} true als het spel is afgelopen
  */
 var checkGameOver = function() {
-    
+
   return false;
 };
 
@@ -230,12 +206,12 @@ function draw() {
       beweegVijand();
       beweegKogel();
       beweegSpeler();
-      
+
       if (checkVijandGeraakt()) {
         // punten erbij
         // nieuwe vijand maken
       }
-      
+
       if (checkSpelerGeraakt()) {
         // leven eraf of gezondheid verlagen
         // eventueel: nieuwe speler maken
