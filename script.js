@@ -23,15 +23,27 @@ var spelStatus = SPELEN;
 
 var spelerX = 200; // x-positie van speler
 var spelerY = 100; // y-positie van speler
+<<<<<<< HEAD
 var spelerBewegenX = 5;
+=======
+
+var blauwAuto;
+var groeneAuto;
+
+>>>>>>> master
 var kogelX = 0;    // x-positie van kogel
 var kogelY = 0;    // y-positie van kogel
 
-var vijandX = 0;   // x-positie van vijand
-var vijandY = 0;   // y-positie van vijand
+var vijandX = 300;   // x-positie van vijand
+var vijandY = 100;   // y-positie van vijand
 
 var score = 0; // aantal behaalde punten
 
+
+function preload() {
+ blauwAuto = loadImage('afbeeldingen/blauwe_auto.png');
+ groeneAuto = loadImage('afbeeldingen/groene_auto.png');
+}
 
 
 
@@ -55,9 +67,8 @@ var tekenVeld = function () {
  * @param {number} x x-coördinaat
  * @param {number} y y-coördinaat
  */
-var tekenVijand = function(x, y) {
-    
-
+var tekenVijand = function(x, y) {   
+    image(groeneAuto, x, y);
 };
 
 
@@ -77,17 +88,51 @@ var tekenKogel = function(x, y) {
  * @param {number} x x-coördinaat
  * @param {number} y y-coördinaat
  */
+
+
+
+
+
+
 var tekenSpeler = function(x, y) {
-  fill("white");
-  ellipse(x, y, 50, 50);
+  fill("green");
+  //ellipse(x, y, 50, 50);
+    image(blauwAuto, x, y);
 };
+
+
+
+
+
+
+
+
+
+
+
 
 
 /**
  * Updatet globale variabelen met positie van vijand of tegenspeler
  */
 var beweegVijand = function() {
-    
+     if (keyIsDown(65)) {
+    vijandX -= 5;
+  }
+
+  if (keyIsDown(68)) {
+    vijandX += 5;
+  }
+
+  if (keyIsDown(87)) {
+    vijandY -= 5;
+  }
+
+  if (keyIsDown(83)) {
+    vijandY += 5;
+  }
+}
+   
 };
 
  if (key.code === 39) {
@@ -103,13 +148,30 @@ var beweegKogel = function() {
 };
 
 
+
 /**
  * Kijkt wat de toetsen/muis etc zijn.
  * Updatet globale variabele spelerX en spelerY
  */
-var beweegSpeler = function() {
+var beweegSpeler = function(){
+    if (keyIsDown(LEFT_ARROW)) {
+    spelerX -= 5;
+  }
 
-};
+  if (keyIsDown(RIGHT_ARROW)) {
+    spelerX += 5;
+  }
+
+  if (keyIsDown(UP_ARROW)) {
+    spelerY -= 5;
+  }
+
+  if (keyIsDown(DOWN_ARROW)) {
+    spelerY += 5;
+  }
+}
+
+
 
 
 /**
