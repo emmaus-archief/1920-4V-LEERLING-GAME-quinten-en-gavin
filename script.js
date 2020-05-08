@@ -103,13 +103,9 @@ var beweegKogel = function() {
  * Kijkt wat de toetsen/muis etc zijn.
  * Updatet globale variabele spelerX en spelerY
  */
-function draw () {
-    if (keyIsDown(39))
-        x -= 5
+var beweegSpeler = function() {
 
-    
-    ellipse(x, y, 50, 50);
-}
+};
 
 
 /**
