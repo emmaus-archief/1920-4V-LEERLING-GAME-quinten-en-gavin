@@ -26,18 +26,20 @@ var spelerX = 200; // x-positie van speler
 var spelerY = 100; // y-positie van speler
 
 var blauwAuto;
+var groeneAuto;
 
 var kogelX = 0;    // x-positie van kogel
 var kogelY = 0;    // y-positie van kogel
 
-var vijandX = 0;   // x-positie van vijand
-var vijandY = 0;   // y-positie van vijand
+var vijandX = 300;   // x-positie van vijand
+var vijandY = 100;   // y-positie van vijand
 
 var score = 0; // aantal behaalde punten
 
 
 function preload() {
  blauwAuto = loadImage('afbeeldingen/blauwe_auto.png');
+ groeneAuto = loadImage('afbeeldingen/groene_auto.png');
 }
 
 
@@ -62,9 +64,8 @@ var tekenVeld = function () {
  * @param {number} x x-coördinaat
  * @param {number} y y-coördinaat
  */
-var tekenVijand = function(x, y) {
-    
-
+var tekenVijand = function(x, y) {   
+    image(groeneAuto, x, y);
 };
 
 
@@ -112,6 +113,22 @@ var tekenSpeler = function(x, y) {
  * Updatet globale variabelen met positie van vijand of tegenspeler
  */
 var beweegVijand = function() {
+     if (keyIsDown(65)) {
+    vijandX -= 5;
+  }
+
+  if (keyIsDown(68)) {
+    vijandX += 5;
+  }
+
+  if (keyIsDown(87)) {
+    vijandY -= 5;
+  }
+
+  if (keyIsDown(83)) {
+    vijandY += 5;
+  }
+}
    
 };
 
@@ -122,15 +139,6 @@ var beweegVijand = function() {
 var beweegKogel = function() {
 
 };
-
-
-
-
-
-
-
-
-
 
 
 
