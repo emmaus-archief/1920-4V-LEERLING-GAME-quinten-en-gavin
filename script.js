@@ -11,7 +11,6 @@
 
 
 
-
 /* ********************************************* */
 /* globale variabelen die je gebruikt in je game */
 /* ********************************************* */
@@ -112,28 +111,30 @@ var tekenSpeler = function(x, y) {
  * Updatet globale variabelen met positie van vijand of tegenspeler
  */
 var beweegVijand = function() {
-<<<<<<< HEAD
-};
-=======
      if (keyIsDown(65)) {
+        if (vijandX > 0) {
     vijandX -= 5;
   }
-
+}
   if (keyIsDown(68)) {
+       if (vijandX < 1280) {
     vijandX += 5;
   }
-
+  }
   if (keyIsDown(87)) {
+      if (vijandY > 0) {
     vijandY -= 5;
   }
+}
 
   if (keyIsDown(83)) {
+      if (vijandY < 720) {
     vijandY += 5;
   }
 }
+}
    
 
->>>>>>> master
 
 
 /**
@@ -151,24 +152,31 @@ var beweegKogel = function() {
  */
 var beweegSpeler = function(){
     if (keyIsDown(LEFT_ARROW)) {
+        if (spelerX > 0) {
     spelerX -= 5;
-  }
-
-  if (keyIsDown(RIGHT_ARROW)) {
-    spelerX += 5;
-  }
-
-  if (keyIsDown(UP_ARROW)) {
-    spelerY -= 5;
-  }
-
-  if (keyIsDown(DOWN_ARROW)) {
-    spelerY += 5;
   }
 }
 
+  if (keyIsDown(RIGHT_ARROW)) {
+       if (spelerX < 1280) {
+    spelerX += 5;
+  }
+  }
 
-};
+  if (keyIsDown(UP_ARROW)) {
+       if (spelerY > 0) {
+    spelerY -= 5;
+  }
+  }
+
+  if (keyIsDown(DOWN_ARROW)) {
+       if (spelerY < 720) {
+    spelerY += 5;
+  }
+}
+}
+
+
 
 
 /**
