@@ -112,7 +112,28 @@ var tekenSpeler = function(x, y) {
  * Updatet globale variabelen met positie van vijand of tegenspeler
  */
 var beweegVijand = function() {
+<<<<<<< HEAD
 };
+=======
+     if (keyIsDown(65)) {
+    vijandX -= 5;
+  }
+
+  if (keyIsDown(68)) {
+    vijandX += 5;
+  }
+
+  if (keyIsDown(87)) {
+    vijandY -= 5;
+  }
+
+  if (keyIsDown(83)) {
+    vijandY += 5;
+  }
+}
+   
+
+>>>>>>> master
 
 
 /**
