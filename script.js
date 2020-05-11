@@ -130,7 +130,6 @@ var beweegVijand = function() {
   }
 }
    
-};
 
 
 /**
