@@ -5,11 +5,9 @@
 /* Game opdracht
    Informatica - Emmauscollege Rotterdam
    Template voor een game in JavaScript met de p5 library
-
    Begin met dit template voor je game opdracht,
    voeg er je eigen code aan toe.
  */
-
 
 
 
@@ -64,7 +62,7 @@ var tekenVeld = function () {
  * @param {number} y y-coördinaat
  */
 var tekenVijand = function(x, y) {   
-    image(groeneAuto, x, y);
+    image(groeneAuto, x, y, 75, 100);
 };
 
 
@@ -93,7 +91,7 @@ var tekenKogel = function(x, y) {
 var tekenSpeler = function(x, y) {
   fill("green");
   //ellipse(x, y, 50, 50);
-    image(blauwAuto, x, y);
+    image(blauwAuto, x, y, 80, 100);
 };
 
 
@@ -113,20 +111,26 @@ var tekenSpeler = function(x, y) {
  */
 var beweegVijand = function() {
      if (keyIsDown(65)) {
-    vijandX -= 5;
+        if (vijandX > 0) {
+    vijandX -= 5; 
   }
-
+}
   if (keyIsDown(68)) {
+       if (vijandX < 1280) {
     vijandX += 5;
   }
-
+  }
   if (keyIsDown(87)) {
+      if (vijandY > 0) {
     vijandY -= 5;
   }
+}
 
   if (keyIsDown(83)) {
+      if (vijandY < 720) {
     vijandY += 5;
   }
+}
 }
    
 
@@ -146,20 +150,28 @@ var beweegKogel = function() {
  */
 var beweegSpeler = function(){
     if (keyIsDown(LEFT_ARROW)) {
+        if (spelerX > 0) {
     spelerX -= 5;
   }
+}
 
   if (keyIsDown(RIGHT_ARROW)) {
+       if (spelerX < 1280) {
     spelerX += 5;
+  }
   }
 
   if (keyIsDown(UP_ARROW)) {
+       if (spelerY > 0) {
     spelerY -= 5;
+  }
   }
 
   if (keyIsDown(DOWN_ARROW)) {
+       if (spelerY < 720) {
     spelerY += 5;
   }
+}
 }
 
 
@@ -181,7 +193,7 @@ var checkVijandGeraakt = function() {
  * @returns {boolean} true als speler is geraakt
  */
 var checkSpelerGeraakt = function() {
-    
+
   return false;
 };
 
@@ -191,7 +203,7 @@ var checkSpelerGeraakt = function() {
  * @returns {boolean} true als het spel is afgelopen
  */
 var checkGameOver = function() {
-    
+
   return false;
 };
 
@@ -221,12 +233,12 @@ function draw() {
       beweegVijand();
       beweegKogel();
       beweegSpeler();
-      
+
       if (checkVijandGeraakt()) {
         // punten erbij
         // nieuwe vijand maken
       }
-      
+
       if (checkSpelerGeraakt()) {
         // leven eraf of gezondheid verlagen
         // eventueel: nieuwe speler maken
