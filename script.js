@@ -44,7 +44,6 @@ function preload() {
 
 
 
-
 /* ********************************************* */
 /*      functies die je gebruikt in je game      */
 /* ********************************************* */
@@ -54,7 +53,7 @@ function preload() {
  * Tekent het speelveld
  */
 var tekenVeld = function () {
-  fill("purple");
+  fill("red");
   rect(20, 20, width - 2 * 20, height - 2 * 20);
 };
 
