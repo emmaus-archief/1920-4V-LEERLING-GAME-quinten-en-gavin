@@ -113,7 +113,7 @@ var tekenSpeler = function(x, y) {
 var beweegVijand = function() {
      if (keyIsDown(65)) {
         if (vijandX > 0) {
-    vijandX -= 5; 
+      playSound(getSound("afbeeldingen/BMW+DRIVEBY.mp3"));
   }
 }
   if (keyIsDown(68)) {
