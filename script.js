@@ -129,10 +129,6 @@ var beweegVijand = function() {
   }
 }
    
-<<<<<<< HEAD
-=======
-
->>>>>>> d683d89dc3e62cad86c87764089b7f2d6d74b710
 
 
 /**
