@@ -63,7 +63,7 @@ var tekenVeld = function () {
  * @param {number} y y-coördinaat
  */
 var tekenVijand = function(x, y) {   
-    image(groeneAuto, x, y);
+    image(groeneAuto, x, y, 75, 100);
 };
 
 
@@ -92,7 +92,7 @@ var tekenKogel = function(x, y) {
 var tekenSpeler = function(x, y) {
   fill("green");
   //ellipse(x, y, 50, 50);
-    image(blauwAuto, x, y);
+    image(blauwAuto, x, y, 80, 100);
 };
 
 
@@ -113,7 +113,7 @@ var tekenSpeler = function(x, y) {
 var beweegVijand = function() {
      if (keyIsDown(65)) {
         if (vijandX > 0) {
-    vijandX -= 5;
+    vijandX -= 5; 
   }
 }
   if (keyIsDown(68)) {
