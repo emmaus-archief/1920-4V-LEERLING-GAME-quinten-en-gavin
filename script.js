@@ -151,21 +151,28 @@ var beweegKogel = function() {
  * Updatet globale variabele spelerX en spelerY
  */
 var beweegSpeler = function(){
+
+
+
     if (keyIsDown(LEFT_ARROW)) {
-        if (spelerX > 0) {
-    spelerX -= 5;
-  }
-}
+        if (spelerX > 0 &&
+            spelerX > vijandX + 80 ||
+            (spelerY < vijandY || spelerY > vijandY + 100)) {
+            spelerX -= 5;
+        }
+    }
 
   if (keyIsDown(RIGHT_ARROW)) {
-       if (spelerX < 1280) {
-    spelerX += 5;
-  }
-  }
+        if (spelerX < 1280 &&
+            spelerX + 100 < vijandX ||
+            (spelerY < vijandY || spelerY > vijandY + 100)){
+            spelerX += 5;
+        }
+    }
 
   if (keyIsDown(UP_ARROW)) {
-       if (spelerY > 0) {
-    spelerY -= 5;
+        if (spelerY > 0) {
+        spelerY -= 5;
   }
   }
 
