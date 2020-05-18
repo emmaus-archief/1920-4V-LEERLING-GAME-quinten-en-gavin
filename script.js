@@ -158,17 +158,14 @@ var beweegSpeler = function(){
 
 
     if (keyIsDown(LEFT_ARROW)) {
-        if (spelerX > 0 &&
-            spelerX > vijandX + 80 ||
-            (spelerY < vijandY || spelerY > vijandY + 100)) {
+        if (spelerX > 0 ) {
             spelerX -= 5;
         }
     }
 
   if (keyIsDown(RIGHT_ARROW)) {
-        if (spelerX < 1280 &&
-            spelerX + 100 < vijandX ||
-            (spelerY < vijandY || spelerY > vijandY + 100)){
+        if (spelerX < 1280 && 
+            spelerX >  blauweAutoBreedte){
             spelerX += 5;
         }
     }
