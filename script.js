@@ -110,12 +110,13 @@ var tekenSpeler = function(x, y) {
 /**
  * Updatet globale variabelen met positie van vijand of tegenspeler
  */
-var beweegVijand = function() {
-     if (keyIsDown(65)) {
-        if (vijandX > 0) {
-    vijandX -= 5; 
-  }
-}
+if (keyIsDown(LEFT_ARROW)) {
+        if (spelerX > 0 &&
+            spelerX > vijandX + 80 ||
+            (spelerY < vijandY || spelerY > vijandY + 100)) {
+            spelerX -= 5;
+        }
+    }
   if (keyIsDown(68)) {
        if (vijandX < 1280) {
     vijandX += 5;
@@ -152,10 +153,12 @@ var beweegKogel = function() {
  */
 var beweegSpeler = function(){
     if (keyIsDown(LEFT_ARROW)) {
-        if (spelerX > 0) {
-    spelerX -= 5;
-  }
-}
+        if (spelerX > 0 &&
+            spelerX > vijandX + 80 ||
+            (spelerY < vijandY || spelerY > vijandY + 100)) {
+            spelerX -= 5;
+        }
+    }
 
   if (keyIsDown(RIGHT_ARROW)) {
        if (spelerX < 1280) {
