@@ -93,10 +93,8 @@ var tekenKogel = function(x, y) {
 
 
 
-
 var tekenSpeler = function(x, y) {
   fill("green");
-  //ellipse(x, y, 50, 50);
     image(blauwAuto, x, y, blauweAutoBreedte, blauweAutoLengte);
 };
 
