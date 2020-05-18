@@ -110,13 +110,12 @@ var tekenSpeler = function(x, y) {
 /**
  * Updatet globale variabelen met positie van vijand of tegenspeler
  */
-if (keyIsDown(LEFT_ARROW)) {
-        if (spelerX > 0 &&
-            spelerX > vijandX + 80 ||
-            (spelerY < vijandY || spelerY > vijandY + 100)) {
-            spelerX -= 5;
-        }
-    }
+if (keyIsDown(65)) {
+        if (vijandX > 0) {
+    vijandX -= 5; 
+  }
+}
+
   if (keyIsDown(68)) {
        if (vijandX < 1280) {
     vijandX += 5;
@@ -133,8 +132,7 @@ if (keyIsDown(LEFT_ARROW)) {
     vijandY += 5;
   }
 }
-}
-   
+
 
 
 
