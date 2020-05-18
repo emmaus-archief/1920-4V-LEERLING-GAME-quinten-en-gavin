@@ -51,8 +51,12 @@ function preload() {
  * Tekent het speelveld
  */
 var tekenVeld = function () {
-  fill("red");
+  fill("green");
   rect(20, 20, width - 2 * 20, height - 2 * 20);
+  fill("grey")
+  ellipse(640,360,1200,400)
+  fill("green")
+  ellipse(640,360,900,200)
 };
 
 
