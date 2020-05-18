@@ -25,6 +25,11 @@ var spelerY = 100; // y-positie van speler
 
 var blauwAuto;
 var groeneAuto;
+var groeneAutoBreedte = 60;
+var blauweAutoBreedte = 65;
+var groeneAutoLengte = 85;
+var blauweAutoLengte = 87;
+
 
 var kogelX = 0;    // x-positie van kogel
 var kogelY = 0;    // y-positie van kogel
@@ -63,7 +68,7 @@ var tekenVeld = function () {
  * @param {number} y y-coördinaat
  */
 var tekenVijand = function(x, y) {   
-    image(groeneAuto, x, y, 75, 100);
+    image(groeneAuto, x, y, groeneAutoBreedte, groeneAutoLengte);
 };
 
 
@@ -88,11 +93,9 @@ var tekenKogel = function(x, y) {
 
 
 
-
 var tekenSpeler = function(x, y) {
   fill("green");
-  //ellipse(x, y, 50, 50);
-    image(blauwAuto, x, y, 80, 100);
+    image(blauwAuto, x, y, blauweAutoBreedte, blauweAutoLengte);
 };
 
 
@@ -151,21 +154,28 @@ var beweegKogel = function() {
  * Updatet globale variabele spelerX en spelerY
  */
 var beweegSpeler = function(){
+
+
+
     if (keyIsDown(LEFT_ARROW)) {
-        if (spelerX > 0) {
-    spelerX -= 5;
-  }
-}
+        if (spelerX > 0 &&
+            spelerX > vijandX + 80 ||
+            (spelerY < vijandY || spelerY > vijandY + 100)) {
+            spelerX -= 5;
+        }
+    }
 
   if (keyIsDown(RIGHT_ARROW)) {
-       if (spelerX < 1280) {
-    spelerX += 5;
-  }
-  }
+        if (spelerX < 1280 &&
+            spelerX + 100 < vijandX ||
+            (spelerY < vijandY || spelerY > vijandY + 100)){
+            spelerX += 5;
+        }
+    }
 
   if (keyIsDown(UP_ARROW)) {
-       if (spelerY > 0) {
-    spelerY -= 5;
+        if (spelerY > 0) {
+        spelerY -= 5;
   }
   }
 
