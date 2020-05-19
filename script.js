@@ -165,7 +165,7 @@ var beweegSpeler = function(){
 
   if (keyIsDown(RIGHT_ARROW)) {
         if (spelerX < 1280 && 
-            spelerX >  blauweAutoBreedte){
+            spelerX >  groeneAutoBreedte){
             spelerX += 5;
         }
     }
