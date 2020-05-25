@@ -20,29 +20,29 @@ const SPELEN = 1;
 const GAMEOVER = 2;
 var spelStatus = SPELEN;
 
-var spelerX = 200; // x-positie van speler
-var spelerY = 100; // y-positie van speler
+var blauwX = 200; // x-positie van speler
+var blauwY = 100; // y-positie van speler
 
 var blauwAuto;
-var groeneAuto;
-var groeneAutoBreedte = 60;
-var blauweAutoBreedte = 65;
-var groeneAutoLengte = 85;
-var blauweAutoLengte = 87;
+var groenAuto;
+var groenBreedte = 60;
+var blauwBreedte = 65;
+var groenLengte = 85;
+var blauwLengte = 87;
 
 
 var kogelX = 0;    // x-positie van kogel
 var kogelY = 0;    // y-positie van kogel
 
-var vijandX = 300;   // x-positie van vijand
-var vijandY = 100;   // y-positie van vijand
+var groenX = 300;   // x-positie van vijand
+var groenY = 100;   // y-positie van vijand
 
 var score = 0; // aantal behaalde punten
 
 
 function preload() {
  blauwAuto = loadImage('afbeeldingen/blauwe_auto.png');
- groeneAuto = loadImage('afbeeldingen/groene_auto.png');
+ groenAuto = loadImage('afbeeldingen/groene_auto.png');
 }
 
 
@@ -68,7 +68,7 @@ var tekenVeld = function () {
  * @param {number} y y-coördinaat
  */
 var tekenVijand = function(x, y) {   
-    image(groeneAuto, x, y, groeneAutoBreedte, groeneAutoLengte);
+    image(groenAuto, x, y, groenBreedte, groenLengte);
 };
 
 
@@ -95,7 +95,7 @@ var tekenKogel = function(x, y) {
 
 var tekenSpeler = function(x, y) {
   fill("green");
-    image(blauwAuto, x, y, blauweAutoBreedte, blauweAutoLengte);
+    image(blauwAuto, x, y, blauwBreedte, blauwLengte);
 };
 
 
@@ -115,24 +115,24 @@ var tekenSpeler = function(x, y) {
  */
 var beweegVijand = function() {
      if (keyIsDown(65)) {
-        if (vijandX > 0) {
-    vijandX -= 5; 
+        if (groenX > 0) {
+      groenX -= 5;
   }
 }
   if (keyIsDown(68)) {
-       if (vijandX < 1280) {
-    vijandX += 5;
+       if (groenX < 1280) {
+    groenX += 5;
   }
   }
   if (keyIsDown(87)) {
-      if (vijandY > 0) {
-    vijandY -= 5;
+      if (groenY > 0) {
+    groenY -= 5;
   }
 }
 
   if (keyIsDown(83)) {
-      if (vijandY < 720) {
-    vijandY += 5;
+      if (groenY < 720) {
+    groenY += 5;
   }
 }
 }
@@ -151,34 +151,31 @@ var beweegKogel = function() {
 
 /**
  * Kijkt wat de toetsen/muis etc zijn.
- * Updatet globale variabele spelerX en spelerY
+ * Updatet globale variabele blauwX en blauwY
  */
 var beweegSpeler = function(){
 
-
-
     if (keyIsDown(LEFT_ARROW)) {
-        if (spelerX > 0 ) {
-            spelerX -= 5;
+        if (blauwX > 0) {
+            blauwX -= 5;
         }
     }
 
   if (keyIsDown(RIGHT_ARROW)) {
-        if (spelerX < 1280 && 
-            spelerX >  groeneAutoBreedte){
-            spelerX += 5;
+        if (blauwX < 1280) {
+            blauwX += 5;
         }
     }
 
   if (keyIsDown(UP_ARROW)) {
-        if (spelerY > 0) {
-        spelerY -= 5;
+        if (blauwY > 0) {
+        blauwY -= 5;
   }
   }
 
   if (keyIsDown(DOWN_ARROW)) {
-       if (spelerY < 720) {
-    spelerY += 5;
+       if (blauwY < 720) {
+    blauwY += 5;
   }
 }
 }
@@ -254,9 +251,9 @@ function draw() {
       }
 
       tekenVeld();
-      tekenVijand(vijandX, vijandY);
+      tekenVijand(groenX, groenY);
       tekenKogel(kogelX, kogelY);
-      tekenSpeler(spelerX, spelerY);
+      tekenSpeler(blauwX, blauwY);
 
       if (checkGameOver()) {
         spelStatus = GAMEOVER;
