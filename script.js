@@ -156,13 +156,15 @@ var beweegKogel = function() {
 var beweegSpeler = function(){
 
     if (keyIsDown(LEFT_ARROW)) {
-        if (blauwX > 0) {
+        if (blauwX > 0 &&
+            blauwX > groenX + groenBreedte) {
             blauwX -= 5;
         }
     }
 
   if (keyIsDown(RIGHT_ARROW)) {
-        if (blauwX < 1280) {
+        if (blauwX < 1280 &&
+            blauwX < groenX + groenBreedte) {
             blauwX += 5;
         }
     }
