@@ -20,8 +20,8 @@ const SPELEN = 1;
 const GAMEOVER = 2;
 var spelStatus = SPELEN;
 
-var blauwX = 200; // x-positie van speler
-var blauwY = 100; // y-positie van speler
+var blauwX = 200; // x-positie van blauwe auto
+var blauwY = 100; // y-positie van blauwe auto
 
 var blauwAuto;
 var groenAuto;
@@ -34,15 +34,15 @@ var blauwLengte = 87;
 var kogelX = 0;    // x-positie van kogel
 var kogelY = 0;    // y-positie van kogel
 
-var groenX = 300;   // x-positie van vijand
-var groenY = 100;   // y-positie van vijand
+var groenX = 300;   // x-positie van groene auto
+var groenY = 100;   // y-positie van groene auto
 
 var score = 0; // aantal behaalde punten
 
 
 function preload() {
- blauwAuto = loadImage('afbeeldingen/blauwe_auto.png');
- groenAuto = loadImage('afbeeldingen/groene_auto.png');
+ blauwAuto = loadImage('afbeeldingen/blauwe_auto.png'); // afbeelding van blauwe auto
+ groenAuto = loadImage('afbeeldingen/groene_auto.png'); // afbeelding van groene auto
 }
 
 
@@ -157,14 +157,14 @@ var beweegSpeler = function(){
 
     if (keyIsDown(LEFT_ARROW)) {
         if (blauwX > 0 &&
-            blauwX > groenX + groenBreedte) {
+            blauwX > groenX + blauwBreedte ||
+            (blauwY < groenY || blauwY > groenY)) {
             blauwX -= 5;
         }
     }
 
   if (keyIsDown(RIGHT_ARROW)) {
-        if (blauwX < 1280 &&
-            blauwX < groenX + groenBreedte) {
+        if (blauwX < 1280) {
             blauwX += 5;
         }
     }
