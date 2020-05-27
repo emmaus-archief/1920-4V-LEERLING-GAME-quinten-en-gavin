@@ -154,37 +154,37 @@ var beweegKogel = function() {
  * Updatet globale variabele blauwX en blauwY
  */
 var beweegSpeler = function(){
+    var futureX = blauwX;
+    var futureY = blauwY;
 
     if (keyIsDown(LEFT_ARROW)) {
-        if (blauwX > 0 &&
-            blauwX > groenX + groenBreedte ||
-            (blauwY < groenY || blauwY > groenY || blauwX < groenX)) {
-            blauwX -= 5;
-        }
+        // bereken wat de volgende positie zou worden
+        futureX = blauwX - 5;
     }
 
-  if (keyIsDown(RIGHT_ARROW)) {
-        if (blauwX < 1280 &&
-            blauwX < groenX + blauwBreedte ||
-            (blauwY < groenY || blauwY > groenY || blauwX > groenX)) {
-            blauwX += 5;
-        }
+    if (keyIsDown(RIGHT_ARROW)) {
+        futureX = blauwX + 5;
     }
 
-  if (keyIsDown(UP_ARROW)) {
-        if (blauwY > 0 &&
-            blauwY > groenY + groenLengte ||
-            (blauwY < groenY || blauwX > groenX || blauwX < groenX)) {
-        blauwY -= 5;
-        }
-  }
+    if (keyIsDown(UP_ARROW)) {
 
-  if (keyIsDown(DOWN_ARROW)) {
+    }
+
+    if (keyIsDown(DOWN_ARROW)) {
        if (blauwY < 720 &&
             blauwY < groenY + blauwLengte ||
             (blauwY > groenY || blauwX > groenX || blauwX < groenX)) {
         blauwY += 5;
         }   
+    }
+
+
+    // check of er een botsing is,
+    // zo NIET, dan positie updaten
+    if (!collideRectRect(futureX, futureY, blauwBreedte, blauwLengte,
+                        groenX, groenY, groenBreedte, groenLengte)) {
+        blauwX = futureX;
+        blauwY = futureY;
     }
 
 }
