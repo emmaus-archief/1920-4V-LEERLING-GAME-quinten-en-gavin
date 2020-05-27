@@ -157,32 +157,37 @@ var beweegSpeler = function(){
 
     if (keyIsDown(LEFT_ARROW)) {
         if (blauwX > 0 &&
-            blauwX > groenX + blauwBreedte ||
-            (blauwY < groenY || blauwY > groenY)) {
+            blauwX > groenX + groenBreedte ||
+            (blauwY < groenY || blauwY > groenY || blauwX < groenX)) {
             blauwX -= 5;
         }
     }
 
   if (keyIsDown(RIGHT_ARROW)) {
-        if (blauwX < 1280) {
+        if (blauwX < 1280 &&
+            blauwX < groenX + blauwBreedte ||
+            (blauwY < groenY || blauwY > groenY || blauwX > groenX)) {
             blauwX += 5;
         }
     }
 
   if (keyIsDown(UP_ARROW)) {
-        if (blauwY > 0) {
+        if (blauwY > 0 &&
+            blauwY > groenY + groenLengte ||
+            (blauwY < groenY || blauwX > groenX || blauwX < groenX)) {
         blauwY -= 5;
-  }
+        }
   }
 
   if (keyIsDown(DOWN_ARROW)) {
-       if (blauwY < 720) {
-    blauwY += 5;
-  }
-}
-}
+       if (blauwY < 720 &&
+            blauwY < groenY + blauwLengte ||
+            (blauwY > groenY || blauwX > groenX || blauwX < groenX)) {
+        blauwY += 5;
+        }   
+    }
 
-
+}
 
 
 /**
