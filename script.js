@@ -15,16 +15,41 @@
 /* globale variabelen die je gebruikt in je game */
 /* ********************************************* */
 
+// eerste alle autoplaatjse aanmaken en inladen
+var blauweAutoN, blauweAutoNO, blauweAutoO, blauweAutoZ;
+var groenAutoN, groenAutoNO, groenAutoO, groenAutoZ;
+
+function preload() {
+    // alle 8 plaatjes per auto inladen
+    blauweAutoO = loadImage('afbeeldingen/blauwe_auto_O.png');
+    blauweAutoZ = loadImage('afbeeldingen/blauwe_auto_Z.png');
+
+
+    groenAutoZ = loadImage('afbeeldingen/groene_auto.png'); // afbeelding van groene auto
+}
+
+
 const UITLEG = 0;
 const SPELEN = 1;
 const GAMEOVER = 2;
 var spelStatus = SPELEN;
 
+const AUTORICHTING_N =  0;
+const AUTORICHTING_NO = 1;
+const AUTORICHTING_O =  2;
+const AUTORICHTING_ZO = 3;
+const AUTORICHTING_Z =  4;
+const AUTORICHTING_ZW = 5;
+const AUTORICHTING_W =  6;
+const AUTORICHTING_NW = 7;
+
 var blauwX = 200; // x-positie van blauwe auto
 var blauwY = 100; // y-positie van blauwe auto
 
-var blauwAuto;
-var groenAuto;
+
+var blauwRichting = AUTORICHTING_Z;
+var groenRichting = AUTORICHTING_Z;
+
 var groenBreedte = 60;
 var blauwBreedte = 65;
 var groenLengte = 85;
@@ -40,10 +65,7 @@ var groenY = 100;   // y-positie van groene auto
 var score = 0; // aantal behaalde punten
 
 
-function preload() {
- blauwAuto = loadImage('afbeeldingen/blauwe_auto.png'); // afbeelding van blauwe auto
- groenAuto = loadImage('afbeeldingen/groene_auto.png'); // afbeelding van groene auto
-}
+
 
 
 
@@ -68,7 +90,7 @@ var tekenVeld = function () {
  * @param {number} y y-coördinaat
  */
 var tekenVijand = function(x, y) {   
-    image(groenAuto, x, y, groenBreedte, groenLengte);
+    image(groenAutoZ, x, y, groenBreedte, groenLengte);
 };
 
 
@@ -94,8 +116,32 @@ var tekenKogel = function(x, y) {
 
 
 var tekenSpeler = function(x, y) {
-  fill("green");
-    image(blauwAuto, x, y, blauwBreedte, blauwLengte);
+    var teGebruikenImage;
+    if (blauwRichting === AUTORICHTING_N) {
+        teGebruikenImage = blauweAutoZ;
+    }
+    else if (blauwRichting === AUTORICHTING_NW) {
+        teGebruikenImage = blauweAutoZ;
+    }
+    else if (blauwRichting === AUTORICHTING_W) {
+        teGebruikenImage = blauweAutoZ;
+    }
+    else if (blauwRichting === AUTORICHTING_ZW) {
+        teGebruikenImage = blauweAutoZ;
+    }
+    else if (blauwRichting === AUTORICHTING_Z) {
+        teGebruikenImage = blauweAutoZ;
+    }
+    else if (blauwRichting === AUTORICHTING_ZO) {
+        teGebruikenImage = blauweAutoZ;
+    }
+    else if (blauwRichting === AUTORICHTING_O) {
+        teGebruikenImage = blauweAutoO;
+    }
+    else if (blauwRichting === AUTORICHTING_NO) {
+        teGebruikenImage = blauweAutoZ;
+    }
+    image(teGebruikenImage, x, y, blauwBreedte, blauwLengte);
 };
 
 
@@ -157,22 +203,24 @@ var beweegSpeler = function(){
     var futureX = blauwX;
     var futureY = blauwY;
 
-    if (keyIsDown(LEFT_ARROW)) {
-        // bereken wat de volgende positie zou worden
-        futureX = blauwX - 5;
+    if (keyIsDown(LEFT_ARROW) && keyIsDown(UP_ARROW)) {
+        blauwRichting = AUTORICHTING_NW;
+        futureX = blauwX - 2.5;
+        futureY = blauwY - 2.5;
     }
 
     if (keyIsDown(RIGHT_ARROW)) {
+        blauwRichting = AUTORICHTING_O;
         futureX = blauwX + 5;
     }
 
     if (keyIsDown(UP_ARROW)) {
-        
+        blauwRichting = AUTORICHTING_N
+        futureY = blauwY - 5;
     }
 
     if (keyIsDown(DOWN_ARROW)) {
-        
-        }   
+       // zelfde soort trucje als bij UP 
     }
 
 
