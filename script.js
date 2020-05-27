@@ -167,14 +167,11 @@ var beweegSpeler = function(){
     }
 
     if (keyIsDown(UP_ARROW)) {
-
+        
     }
 
     if (keyIsDown(DOWN_ARROW)) {
-       if (blauwY < 720 &&
-            blauwY < groenY + blauwLengte ||
-            (blauwY > groenY || blauwX > groenX || blauwX < groenX)) {
-        blauwY += 5;
+        
         }   
     }
 
@@ -187,7 +184,7 @@ var beweegSpeler = function(){
         blauwY = futureY;
     }
 
-}
+
 
 
 /**
