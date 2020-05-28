@@ -15,35 +15,64 @@
 /* globale variabelen die je gebruikt in je game */
 /* ********************************************* */
 
+// eerste alle autoplaatjse aanmaken en inladen
+var blauweAutoN, blauweAutoNO, blauweAutoO, blauweAutoZ;
+var groenAutoN, groenAutoNO, groenAutoO, groenAutoZ;
+
+function preload() {
+    // alle 8 plaatjes per auto inladen
+    blauweAutoO = loadImage('afbeeldingen/blauwe_auto_O.png');
+    blauweAutoZ = loadImage('afbeeldingen/blauwe_auto_Z.png');
+
+
+    groenAutoZ = loadImage('afbeeldingen/groene_auto_Z.png');
+    groenAutoW = loadImage('afbeeldingen/groene_auto_Z.png'); 
+    groenAutoO = loadImage('afbeeldingen/groene_auto_Z.png'); 
+    groenAutoN = loadImage('afbeeldingen/groene_auto_Z.png'); 
+    groenAutoNW = loadImage('afbeeldingen/groene_auto_Z.png'); 
+    groenAutoNO = loadImage('afbeeldingen/groene_auto_Z.png');
+    groenAutoZO = loadImage('afbeeldingen/groene_auto_Z.png');  
+    groenAutoNO = loadImage('afbeeldingen/groene_auto_Z.png');    
+}
+
+
 const UITLEG = 0;
 const SPELEN = 1;
 const GAMEOVER = 2;
 var spelStatus = SPELEN;
 
-var spelerX = 200; // x-positie van speler
-var spelerY = 100; // y-positie van speler
+const AUTORICHTING_N =  0;
+const AUTORICHTING_NO = 1;
+const AUTORICHTING_O =  2;
+const AUTORICHTING_ZO = 3;
+const AUTORICHTING_Z =  4;
+const AUTORICHTING_ZW = 5;
+const AUTORICHTING_W =  6;
+const AUTORICHTING_NW = 7;
 
-var blauwAuto;
-var groeneAuto;
-var groeneAutoBreedte = 60;
-var blauweAutoBreedte = 65;
-var groeneAutoLengte = 85;
-var blauweAutoLengte = 87;
+var blauwX = 200; // x-positie van blauwe auto
+var blauwY = 100; // y-positie van blauwe auto
+
+
+var blauwRichting = AUTORICHTING_Z;
+var groenRichting = AUTORICHTING_Z;
+
+var groenBreedte = 60;
+var blauwBreedte = 65;
+var groenLengte = 85;
+var blauwLengte = 87;
 
 
 var kogelX = 0;    // x-positie van kogel
 var kogelY = 0;    // y-positie van kogel
 
-var vijandX = 300;   // x-positie van vijand
-var vijandY = 100;   // y-positie van vijand
+var groenX = 300;   // x-positie van groene auto
+var groenY = 100;   // y-positie van groene auto
 
 var score = 0; // aantal behaalde punten
 
 
-function preload() {
- blauwAuto = loadImage('afbeeldingen/blauwe_auto.png');
- groeneAuto = loadImage('afbeeldingen/groene_auto.png');
-}
+
 
 
 
@@ -71,7 +100,7 @@ var tekenVeld = function () {
  * @param {number} y y-coördinaat
  */
 var tekenVijand = function(x, y) {   
-    image(groeneAuto, x, y, groeneAutoBreedte, groeneAutoLengte);
+    image(groenAutoZ, x, y, groenBreedte, groenLengte);
 };
 
 
@@ -97,19 +126,7 @@ var tekenKogel = function(x, y) {
 
 
 var tekenSpeler = function(x, y) {
-  fill("green");
-    image(blauwAuto, x, y, blauweAutoBreedte, blauweAutoLengte);
-};
-
-
-
-
-
-
-
-
-
-
+}
 
 
 
@@ -117,28 +134,67 @@ var tekenSpeler = function(x, y) {
  * Updatet globale variabelen met positie van vijand of tegenspeler
  */
 var beweegVijand = function() {
-     if (keyIsDown(65)) {
-        if (vijandX > 0) {
-      vijandX -= 5;
-  }
-}
-  if (keyIsDown(68)) {
-       if (vijandX < 1280) {
-    vijandX += 5;
-  }
-  }
-  if (keyIsDown(87)) {
-      if (vijandY > 0) {
-    vijandY -= 5;
-  }
+      var futureX = groenX;
+      var futureY = groenY;
+
+    if (keyIsDown(65)) {
+        if (groenX > 0) {
+        groenRichting = AUTORICHTING_W;
+        futureX = groenX -5;
+    }
 }
 
-  if (keyIsDown(83)) {
-      if (vijandY < 720) {
-    vijandY += 5;
-  }
+    if (keyIsDown(68)) {
+        if (groenX < 1280) {
+        groenRichting = AUTORICHTING_O;
+        futureX = groenX + 5;
+    }
+    }
+    if (keyIsDown(87)) {
+        if (groenY > 0) {
+        groenRichting = AUTORICHTING_N
+        futureY = groenY - 5;
+    }
 }
+    if (keyIsDown(83)) {
+        if (groenY < 720) {
+        groenRichting = AUTORICHTING_Z
+        futureY = groenY + 5;
+    }
+    }
+    if (keyIsDown(65) && keyIsDown(87)) {
+        groenRichting = AUTORICHTING_NW;
+        futureX = groenX - 2.5;
+        futureY = groenY - 2.5;
+    }
+
+    if (keyIsDown(68) && keyIsDown(87)) {
+        groenRichting = AUTORICHTING_NO;
+        futureX = groenX + 2.5;
+        futureY = groenY - 2.5;
+    }
+
+    if (keyIsDown(68) && keyIsDown(83)) {
+        groenRichting = AUTORICHTING_ZO;
+        futureX = groenX + 2.5;
+        futureY = groenY + 2.5;
+    }
+
+    if (keyIsDown(65) && keyIsDown(83)) {
+        groenRichting = AUTORICHTING_ZW;
+        futureX = groenX - 2.5;
+        futureY = groenY + 2.5;
+    }
+
+    // check of er een botsing is,
+    // zo NIET, dan positie updaten
+    if (!collideRectRect(futureX, futureY, groenBreedte, groenLengte,
+                        blauwX, blauwY, blauwBreedte, blauwLengte)) {
+        groenX = futureX;
+        groenY = futureY;
+    }
 }
+
    
 
 
@@ -153,41 +209,69 @@ var beweegKogel = function() {
 
 /**
  * Kijkt wat de toetsen/muis etc zijn.
- * Updatet globale variabele spelerX en spelerY
+ * Updatet globale variabele blauwX en blauwY
  */
 var beweegSpeler = function(){
-
-
+    var futureX = blauwX;
+    var futureY = blauwY;
 
     if (keyIsDown(LEFT_ARROW)) {
-        if (spelerX > 0 &&
-            spelerX > vijandX + 80 ||
-            (spelerY < vijandY || spelerY > vijandY + 100)) {
-            spelerX -= 5;
-        }
+        if (blauwX > 0) {
+        blauwRichting = AUTORICHTING_W;
+        futureX = blauwX -5;
     }
-
-  if (keyIsDown(RIGHT_ARROW)) {
-        if (spelerX < 1280 &&
-            spelerX + 100 < vijandX ||
-            (spelerY < vijandY || spelerY > vijandY + 100)){
-            spelerX += 5;
-        }
-    }
-
-  if (keyIsDown(UP_ARROW)) {
-        if (spelerY > 0) {
-        spelerY -= 5;
-  }
-  }
-
-  if (keyIsDown(DOWN_ARROW)) {
-       if (spelerY < 720) {
-    spelerY += 5;
-  }
-}
 }
 
+    if (keyIsDown(RIGHT_ARROW)) {
+        if (blauwX < 1280) {
+        blauwRichting = AUTORICHTING_O;
+        futureX = blauwX + 5;
+    }
+    }
+    if (keyIsDown(UP_ARROW)) {
+        if (blauwY > 0) {
+        blauwRichting = AUTORICHTING_N
+        futureY = blauwY - 5;
+    }
+}
+    if (keyIsDown(DOWN_ARROW)) {
+        if (blauwY < 720) {
+        blauwRichting = AUTORICHTING_Z
+        futureY = blauwY + 5;
+    }
+    }
+    if (keyIsDown(LEFT_ARROW) && keyIsDown(UP_ARROW)) {
+        blauwRichting = AUTORICHTING_NW;
+        futureX = blauwX - 2.5;
+        futureY = blauwY - 2.5;
+    }
+
+    if (keyIsDown(RIGHT_ARROW) && keyIsDown(UP_ARROW)) {
+        blauwRichting = AUTORICHTING_NO;
+        futureX = blauwX + 2.5;
+        futureY = blauwY - 2.5;
+    }
+
+    if (keyIsDown(RIGHT_ARROW) && keyIsDown(DOWN_ARROW)) {
+        blauwRichting = AUTORICHTING_ZO;
+        futureX = blauwX + 2.5;
+        futureY = blauwY + 2.5;
+    }
+
+    if (keyIsDown(LEFT_ARROW) && keyIsDown(DOWN_ARROW)) {
+        blauwRichting = AUTORICHTING_ZW;
+        futureX = blauwX - 2.5;
+        futureY = blauwY + 2.5;
+    }
+
+    // check of er een botsing is,
+    // zo NIET, dan positie updaten
+    if (!collideRectRect(futureX, futureY, blauwBreedte, blauwLengte,
+                        groenX, groenY, groenBreedte, groenLengte)) {
+        blauwX = futureX;
+        blauwY = futureY;
+    }
+}
 
 
 
@@ -259,9 +343,9 @@ function draw() {
       }
 
       tekenVeld();
-      tekenVijand(vijandX, vijandY);
+      tekenVijand(groenX, groenY);
       tekenKogel(kogelX, kogelY);
-      tekenSpeler(spelerX, spelerY);
+      tekenSpeler(blauwX, blauwY);
 
       if (checkGameOver()) {
         spelStatus = GAMEOVER;
