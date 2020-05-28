@@ -15,10 +15,6 @@
 /* globale variabelen die je gebruikt in je game */
 /* ********************************************* */
 
-// eerste alle autoplaatjse aanmaken en inladen
-var blauweAutoN, blauweAutoNO, blauweAutoO, blauweAutoZ;
-var groeneAutoN, groeneAutoNO, groeneAutoO, groeneAutoZ;
-
 function preload() {
     // alle 8 plaatjes per auto inladen
     blauweAutoO = loadImage('afbeeldingen/blauwe_auto_O.png');
@@ -82,7 +78,6 @@ var score = 0; // aantal behaalde punten
 
 
 
-
 /* ********************************************* */
 /*      functies die je gebruikt in je game      */
 /* ********************************************* */
@@ -92,8 +87,12 @@ var score = 0; // aantal behaalde punten
  * Tekent het speelveld
  */
 var tekenVeld = function () {
-  fill("purple");
+  fill("green");
   rect(20, 20, width - 2 * 20, height - 2 * 20);
+  fill("grey")
+  ellipse(640,360,1200,650)
+  fill("green")
+  ellipse(640,360,800,350)
 };
 
 
@@ -103,7 +102,14 @@ var tekenVeld = function () {
  * @param {number} y y-coördinaat
  */
 var tekenVijand = function(x, y) {   
-    image(groenAutoZ, x, y, groenBreedte, groenLengte);
+    image(groeneAutoZ, x, y, groenBreedte, groenLengte);
+    image(groeneAutoW, x, y, groenBreedte, groenLengte);
+    image(groeneAutoO, x, y, groenBreedte, groenLengte);
+    image(groeneAutoN, x, y, groenBreedte, groenLengte);
+    image(groeneAutoNW, x, y, groenBreedte, groenLengte);
+    image(groeneAutoNO, x, y, groenBreedte, groenLengte);
+    image(groeneAutoZW, x, y, groenBreedte, groenLengte);
+    image(groeneAutoZO, x, y, groenBreedte, groenLengte);
 };
 
 
@@ -129,7 +135,8 @@ var tekenKogel = function(x, y) {
 
 
 var tekenSpeler = function(x, y) {
-}
+    image(groeneAutoZ, x, y, groenBreedte, groenLengte);
+};
 
 
 
@@ -199,7 +206,6 @@ var beweegVijand = function() {
 }
 
    
-
 
 
 /**
