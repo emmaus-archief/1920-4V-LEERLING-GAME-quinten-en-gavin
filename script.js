@@ -131,22 +131,6 @@ var tekenSpeler = function(x, y) {
  * Updatet globale variabelen met positie van vijand of tegenspeler
  */
 var beweegVijand = function() {
-<<<<<<< HEAD
-     if (keyIsDown(65)) {
-        if (vijandX > 0) {
-      vijandX -= 5;
-  }
-}
-  if (keyIsDown(68)) {
-       if (vijandX < 1280) {
-    vijandX += 5;
-  }
-  }
-  if (keyIsDown(87)) {
-      if (vijandY > 0) {
-    vijandY -= 5;
-  }
-=======
       var futureX = groenX;
       var futureY = groenY;
 
@@ -155,7 +139,6 @@ var beweegVijand = function() {
         groenRichting = AUTORICHTING_W;
         futureX = groenX -5;
     }
->>>>>>> Quinten-branch
 }
 
     if (keyIsDown(68)) {
