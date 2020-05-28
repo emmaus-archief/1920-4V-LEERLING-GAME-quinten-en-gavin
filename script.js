@@ -82,7 +82,6 @@ var score = 0; // aantal behaalde punten
 
 
 
-
 /* ********************************************* */
 /*      functies die je gebruikt in je game      */
 /* ********************************************* */
@@ -92,8 +91,12 @@ var score = 0; // aantal behaalde punten
  * Tekent het speelveld
  */
 var tekenVeld = function () {
-  fill("purple");
+  fill("green");
   rect(20, 20, width - 2 * 20, height - 2 * 20);
+  fill("grey")
+  ellipse(640,360,1200,650)
+  fill("green")
+  ellipse(640,360,800,350)
 };
 
 
@@ -199,7 +202,6 @@ var beweegVijand = function() {
 }
 
    
-
 
 
 /**
