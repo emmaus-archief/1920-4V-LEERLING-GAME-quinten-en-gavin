@@ -17,22 +17,28 @@
 
 // eerste alle autoplaatjse aanmaken en inladen
 var blauweAutoN, blauweAutoNO, blauweAutoO, blauweAutoZ;
-var groenAutoN, groenAutoNO, groenAutoO, groenAutoZ;
+var groeneAutoN, groeneAutoNO, groeneAutoO, groeneAutoZ;
 
 function preload() {
     // alle 8 plaatjes per auto inladen
     blauweAutoO = loadImage('afbeeldingen/blauwe_auto_O.png');
     blauweAutoZ = loadImage('afbeeldingen/blauwe_auto_Z.png');
+    blauweAutoN = loadImage('afbeeldingen/blauwe_auto_N.png');
+    blauweAutoW = loadImage('afbeeldingen/blauwe_auto_W.png');
+    blauweAutoNO = loadImage('afbeeldingen/blauwe_auto_NO.png');
+    blauweAutoNW = loadImage('afbeeldingen/blauwe_auto_NW.png');
+    blauweAutoZO = loadImage('afbeeldingen/blauwe_auto_ZO.png');
+    blauweAutoZW = loadImage('afbeeldingen/blauwe_auto_ZW.png');
 
 
-    groenAutoZ = loadImage('afbeeldingen/groene_auto_Z.png');
-    groenAutoW = loadImage('afbeeldingen/groene_auto_Z.png'); 
-    groenAutoO = loadImage('afbeeldingen/groene_auto_Z.png'); 
-    groenAutoN = loadImage('afbeeldingen/groene_auto_Z.png'); 
-    groenAutoNW = loadImage('afbeeldingen/groene_auto_Z.png'); 
-    groenAutoNO = loadImage('afbeeldingen/groene_auto_Z.png');
-    groenAutoZO = loadImage('afbeeldingen/groene_auto_Z.png');  
-    groenAutoNO = loadImage('afbeeldingen/groene_auto_Z.png');    
+    groeneAutoZ = loadImage('afbeeldingen/groene_auto_Z.png');
+    groeneAutoW = loadImage('afbeeldingen/groene_auto_W.png'); 
+    groeneAutoO = loadImage('afbeeldingen/groene_auto_O.png'); 
+    groeneAutoN = loadImage('afbeeldingen/groene_auto_N.png'); 
+    groeneAutoNW = loadImage('afbeeldingen/groene_auto_NW.png'); 
+    groeneAutoNO = loadImage('afbeeldingen/groene_auto_NO.png');
+    groeneAutoZO = loadImage('afbeeldingen/groene_auto_ZO.png');  
+    groeneAutoZW = loadImage('afbeeldingen/groene_auto_ZW.png');    
 }
 
 
