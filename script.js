@@ -57,7 +57,23 @@ var blauwY = 100; // y-positie van blauwe auto
 
 
 var blauwRichting = AUTORICHTING_Z;
+var blauwRichting = AUTORICHTING_O;
+var blauwRichting = AUTORICHTING_N;
+var blauwRichting = AUTORICHTING_W;
+var blauwRichting = AUTORICHTING_NW;
+var blauwRichting = AUTORICHTING_NO;
+var blauwRichting = AUTORICHTING_ZW;
+var blauwRichting = AUTORICHTING_ZO;
+
 var groenRichting = AUTORICHTING_Z;
+var groenRichting = AUTORICHTING_O;
+var groenRichting = AUTORICHTING_N;
+var groenRichting = AUTORICHTING_W;
+var groenRichting = AUTORICHTING_NW;
+var groenRichting = AUTORICHTING_NO;
+var groenRichting = AUTORICHTING_ZW;
+var groenRichting = AUTORICHTING_ZO;
+
 
 var groenBreedte = 60;
 var blauwBreedte = 65;
@@ -135,14 +151,7 @@ var tekenKogel = function(x, y) {
 
 
 var tekenSpeler = function(x, y) {
-    image(blauweAutoZ, x, y, blauwBreedte, blauwLengte);
-    image(blauweAutoW, x, y, blauwBreedte, blauwLengte);
-    image(blauweAutoO, x, y, blauwBreedte, blauwLengte);
-    image(blauweAutoN, x, y, blauwBreedte, blauwLengte);
-    image(blauweAutoNW, x, y, blauwBreedte, blauwLengte);
-    image(blauweAutoNO, x, y, blauwBreedte, blauwLengte);
-    image(blauweAutoZW, x, y, blauwBreedte, blauwLengte);
-    image(blauweAutoZO, x, y, blauwBreedte, blauwLengte);
+    image(blauweAutoZ, x, y, groenBreedte, groenLengte);
 };
 
 
