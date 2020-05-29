@@ -135,7 +135,14 @@ var tekenKogel = function(x, y) {
 
 
 var tekenSpeler = function(x, y) {
-    image(groeneAutoZ, x, y, groenBreedte, groenLengte);
+    image(blauweAutoZ, x, y, blauwBreedte, blauwLengte);
+    image(blauweAutoW, x, y, blauwBreedte, blauwLengte);
+    image(blauweAutoO, x, y, blauwBreedte, blauwLengte);
+    image(blauweAutoN, x, y, blauwBreedte, blauwLengte);
+    image(blauweAutoNW, x, y, blauwBreedte, blauwLengte);
+    image(blauweAutoNO, x, y, blauwBreedte, blauwLengte);
+    image(blauweAutoZW, x, y, blauwBreedte, blauwLengte);
+    image(blauweAutoZO, x, y, blauwBreedte, blauwLengte);
 };
 
 
