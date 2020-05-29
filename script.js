@@ -151,7 +151,7 @@ var tekenKogel = function(x, y) {
 
 
 var tekenSpeler = function(x, y) {
-    image(groeneAutoZ, x, y, groenBreedte, groenLengte);
+    image(blauweAutoZ, x, y, groenBreedte, groenLengte);
 };
 
 
