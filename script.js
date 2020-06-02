@@ -15,27 +15,7 @@
 /* globale variabelen die je gebruikt in je game */
 /* ********************************************* */
 
-function preload() {
-    // alle 8 plaatjes per auto inladen
-    blauweAutoO = loadImage('afbeeldingen/blauwe_auto_O.png');
-    blauweAutoZ = loadImage('afbeeldingen/blauwe_auto_Z.png');
-    blauweAutoN = loadImage('afbeeldingen/blauwe_auto_N.png');
-    blauweAutoW = loadImage('afbeeldingen/blauwe_auto_W.png');
-    blauweAutoNO = loadImage('afbeeldingen/blauwe_auto_NO.png');
-    blauweAutoNW = loadImage('afbeeldingen/blauwe_auto_NW.png');
-    blauweAutoZO = loadImage('afbeeldingen/blauwe_auto_ZO.png');
-    blauweAutoZW = loadImage('afbeeldingen/blauwe_auto_ZW.png');
 
-
-    groeneAutoZ = loadImage('afbeeldingen/groene_auto_Z.png');
-    groeneAutoW = loadImage('afbeeldingen/groene_auto_W.png'); 
-    groeneAutoO = loadImage('afbeeldingen/groene_auto_O.png'); 
-    groeneAutoN = loadImage('afbeeldingen/groene_auto_N.png'); 
-    groeneAutoNW = loadImage('afbeeldingen/groene_auto_NW.png'); 
-    groeneAutoNO = loadImage('afbeeldingen/groene_auto_NO.png');
-    groeneAutoZO = loadImage('afbeeldingen/groene_auto_ZO.png');  
-    groeneAutoZW = loadImage('afbeeldingen/groene_auto_ZW.png');    
-}
 
 
 const UITLEG = 0;
@@ -52,27 +32,24 @@ const AUTORICHTING_ZW = 5;
 const AUTORICHTING_W =  6;
 const AUTORICHTING_NW = 7;
 
+// plaatjes variabelen
+var blauweAutoO;
+var blauweAutoZ;
+var blauweAutoN;
+var blauweAutoW;
+var blauweAutoNO;
+var blauweAutoNW;
+var blauweAutoZO;
+var blauweAutoZW;
+
+
+
 var blauwX = 200; // x-positie van blauwe auto
 var blauwY = 100; // y-positie van blauwe auto
 
 
 var blauwRichting = AUTORICHTING_Z;
-var blauwRichting = AUTORICHTING_O;
-var blauwRichting = AUTORICHTING_N;
-var blauwRichting = AUTORICHTING_W;
-var blauwRichting = AUTORICHTING_NW;
-var blauwRichting = AUTORICHTING_NO;
-var blauwRichting = AUTORICHTING_ZW;
-var blauwRichting = AUTORICHTING_ZO;
-
 var groenRichting = AUTORICHTING_Z;
-var groenRichting = AUTORICHTING_O;
-var groenRichting = AUTORICHTING_N;
-var groenRichting = AUTORICHTING_W;
-var groenRichting = AUTORICHTING_NW;
-var groenRichting = AUTORICHTING_NO;
-var groenRichting = AUTORICHTING_ZW;
-var groenRichting = AUTORICHTING_ZO;
 
 
 var groenBreedte = 60;
@@ -98,6 +75,30 @@ var score = 0; // aantal behaalde punten
 /*      functies die je gebruikt in je game      */
 /* ********************************************* */
 
+function preload() {
+    // alle 8 plaatjes per auto inladen
+    blauweAutoO = loadImage('afbeeldingen/blauwe_auto_O.png');
+    blauweAutoZ = loadImage('afbeeldingen/blauwe_auto_Z.png');
+    blauweAutoN = loadImage('afbeeldingen/blauwe_auto_N.png');
+    blauweAutoW = loadImage('afbeeldingen/blauwe_auto_W.png');
+    blauweAutoNO = loadImage('afbeeldingen/blauwe_auto_NO.png');
+    blauweAutoNW = loadImage('afbeeldingen/blauwe_auto_NW.png');
+    blauweAutoZO = loadImage('afbeeldingen/blauwe_auto_ZO.png');
+    blauweAutoZW = loadImage('afbeeldingen/blauwe_auto_ZW.png');
+
+/*
+    groeneAutoZ = loadImage('afbeeldingen/groene_auto_Z.png');
+    groeneAutoW = loadImage('afbeeldingen/groene_auto_W.png'); 
+    groeneAutoO = loadImage('afbeeldingen/groene_auto_O.png'); 
+    groeneAutoN = loadImage('afbeeldingen/groene_auto_N.png'); 
+    groeneAutoNW = loadImage('afbeeldingen/groene_auto_NW.png'); 
+    groeneAutoNO = loadImage('afbeeldingen/groene_auto_NO.png');
+    groeneAutoZO = loadImage('afbeeldingen/groene_auto_ZO.png');  
+    groeneAutoZW = loadImage('afbeeldingen/groene_auto_ZW.png');    
+    */
+}
+
+
 
 /**
  * Tekent het speelveld
@@ -118,6 +119,7 @@ var tekenVeld = function () {
  * @param {number} y y-coördinaat
  */
 var tekenVijand = function(x, y) {   
+    /*
     image(groeneAutoZ, x, y, groenBreedte, groenLengte);
     image(groeneAutoW, x, y, groenBreedte, groenLengte);
     image(groeneAutoO, x, y, groenBreedte, groenLengte);
@@ -126,6 +128,7 @@ var tekenVijand = function(x, y) {
     image(groeneAutoNO, x, y, groenBreedte, groenLengte);
     image(groeneAutoZW, x, y, groenBreedte, groenLengte);
     image(groeneAutoZO, x, y, groenBreedte, groenLengte);
+    */
 };
 
 
