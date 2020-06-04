@@ -42,7 +42,14 @@ var blauweAutoNW;
 var blauweAutoZO;
 var blauweAutoZW;
 
-
+var groeneAutoO;
+var groeneAutoZ;
+var groeneAutoN;
+var groeneAutoW;
+var groeneAutoNO;
+var groeneAutoNW;
+var groeneAutoZO;
+var groeneAutoZW;
 
 var blauwX = 200; // x-positie van blauwe auto
 var blauwY = 100; // y-positie van blauwe auto
@@ -86,7 +93,7 @@ function preload() {
     blauweAutoZO = loadImage('afbeeldingen/blauwe_auto_ZO.png');
     blauweAutoZW = loadImage('afbeeldingen/blauwe_auto_ZW.png');
 
-/*
+
     groeneAutoZ = loadImage('afbeeldingen/groene_auto_Z.png');
     groeneAutoW = loadImage('afbeeldingen/groene_auto_W.png'); 
     groeneAutoO = loadImage('afbeeldingen/groene_auto_O.png'); 
@@ -95,7 +102,6 @@ function preload() {
     groeneAutoNO = loadImage('afbeeldingen/groene_auto_NO.png');
     groeneAutoZO = loadImage('afbeeldingen/groene_auto_ZO.png');  
     groeneAutoZW = loadImage('afbeeldingen/groene_auto_ZW.png');    
-    */
 }
 
 
@@ -119,7 +125,6 @@ var tekenVeld = function () {
  * @param {number} y y-coördinaat
  */
 var tekenVijand = function(x, y) {   
-    /*
     image(groeneAutoZ, x, y, groenBreedte, groenLengte);
     image(groeneAutoW, x, y, groenBreedte, groenLengte);
     image(groeneAutoO, x, y, groenBreedte, groenLengte);
@@ -128,8 +133,8 @@ var tekenVijand = function(x, y) {
     image(groeneAutoNO, x, y, groenBreedte, groenLengte);
     image(groeneAutoZW, x, y, groenBreedte, groenLengte);
     image(groeneAutoZO, x, y, groenBreedte, groenLengte);
-    */
-};
+};    
+
 
 
 /**
@@ -154,7 +159,7 @@ var tekenKogel = function(x, y) {
 
 
 var tekenSpeler = function(x, y) {
-    image(blauweAutoZ, x, y, groenBreedte, groenLengte);
+    image(blauweAutoZ, x, y, blauwBreedte, blauwLengte);
 };
 
 
