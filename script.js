@@ -129,9 +129,34 @@ var tekenVeld = function () {
  * @param {number} x x-coördinaat
  * @param {number} y y-coördinaat
  */
-var tekenVijand = function(x, y) {   
-    image(groeneAutoZ, x, y, groenBreedte, groenLengte);
-    /*image(groeneAutoW, x, y, groenBreedte, groenLengte);
+var tekenVijand = function(x, y) {  
+     switch (blauwRichting) {
+      case AUTORICHTING_N:
+       image(groeneAutoN, x, y, groenBreedte, groenLengte);
+      break;
+      case AUTORICHTING_Z:
+        image(groeneAutoZ, x, y, groenBreedte, groenLengte);
+      break;
+      case AUTORICHTING_O:
+        image(groeneAutoO, x, y, groenBreedte, groenLengte);
+      break; 
+      case AUTORICHTING_W:
+        image(groeneAutoW, x, y, groenBreedte, groenLengte);
+      break; 
+      case AUTORICHTING_NW:
+        image(groeneAutoNW, x, y, groenBreedte, groenLengte);
+      break; 
+      case AUTORICHTING_NO:
+        image(groeneAutoNO, x, y, groenBreedte, groenLengte);
+      break; 
+      case AUTORICHTING_ZW:
+        image(groeneAutoZW, x, y, groenBreedte, groenLengte);
+      break; 
+      case AUTORICHTING_ZO:
+        image(groeneAutoZO, x, y, groenBreedte, groenLengte);
+      break;  
+    /*image(groeneAutoZ, x, y, groenBreedte, groenLengte);
+    image(groeneAutoW, x, y, groenBreedte, groenLengte);
     image(groeneAutoO, x, y, groenBreedte, groenLengte);
     image(groeneAutoN, x, y, groenBreedte, groenLengte);
     image(groeneAutoNW, x, y, groenBreedte, groenLengte);
@@ -139,7 +164,7 @@ var tekenVijand = function(x, y) {
     image(groeneAutoZW, x, y, groenBreedte, groenLengte);
     image(groeneAutoZO, x, y, groenBreedte, groenLengte);*/
 };    
-
+}
 
 
 /**
