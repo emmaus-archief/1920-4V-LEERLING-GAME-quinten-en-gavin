@@ -52,7 +52,7 @@ var groeneAutoZO;
 var groeneAutoZW;
 
 var blauwX = 200; // x-positie van blauwe auto
-var blauwY = 100; // y-positie van blauwe auto
+var blauwY = 200; // y-positie van blauwe auto
 
 
 var blauwRichting = AUTORICHTING_Z;
@@ -68,8 +68,8 @@ var blauwLengte = 87;
 var kogelX = 0;    // x-positie van kogel
 var kogelY = 0;    // y-positie van kogel
 
-var groenX = 300;   // x-positie van groene auto
-var groenY = 100;   // y-positie van groene auto
+var groenX = 100;   // x-positie van groene auto
+var groenY = 200;   // y-positie van groene auto
 
 var score = 0; // aantal behaalde punten
 
@@ -83,7 +83,7 @@ var score = 0; // aantal behaalde punten
 /* ********************************************* */
 
 function preload() {
-    // alle 8 plaatjes per auto inladen
+    // blauwe auto's plaatjes alle posities
     blauweAutoO = loadImage('afbeeldingen/blauwe_auto_O.png');
     blauweAutoZ = loadImage('afbeeldingen/blauwe_auto_Z.png');
     blauweAutoN = loadImage('afbeeldingen/blauwe_auto_N.png');
@@ -93,7 +93,7 @@ function preload() {
     blauweAutoZO = loadImage('afbeeldingen/blauwe_auto_ZO.png');
     blauweAutoZW = loadImage('afbeeldingen/blauwe_auto_ZW.png');
 
-
+    // groene auto's plaatjes alle posities
     groeneAutoZ = loadImage('afbeeldingen/groene_auto_Z.png');
     groeneAutoW = loadImage('afbeeldingen/groene_auto_W.png'); 
     groeneAutoO = loadImage('afbeeldingen/groene_auto_O.png'); 
@@ -101,7 +101,9 @@ function preload() {
     groeneAutoNW = loadImage('afbeeldingen/groene_auto_NW.png'); 
     groeneAutoNO = loadImage('afbeeldingen/groene_auto_NO.png');
     groeneAutoZO = loadImage('afbeeldingen/groene_auto_ZO.png');  
-    groeneAutoZW = loadImage('afbeeldingen/groene_auto_ZW.png');    
+    groeneAutoZW = loadImage('afbeeldingen/groene_auto_ZW.png');
+
+    // finishline plaatje
 }
 
 
@@ -116,6 +118,7 @@ var tekenVeld = function () {
   ellipse(640,360,1210,680)
   fill("green")
   ellipse(640,360,740,310)
+    line(45, 360, 500, 360)
 };
 
 
@@ -160,6 +163,13 @@ var tekenKogel = function(x, y) {
 
 var tekenSpeler = function(x, y) {
     image(blauweAutoZ, x, y, blauwBreedte, blauwLengte);
+    /*image(blauweAutoW, x, y, blauwBreedte, blauwLengte);
+    image(blauweAutoO, x, y, blauwBreedte, blauwLengte);
+    image(blauweAutoN, x, y, blauwBreedte, blauwLengte);
+    image(blauweAutoNW, x, y, blauwBreedte, blauwLengte);
+    image(blauweAutoNO, x, y, blauwBreedte, blauwLengte);
+    image(blauweAutoZW, x, y, blauwBreedte, blauwLengte);
+    image(blauweAutoZO, x, y, blauwBreedte, blauwLengte);*/
 };
 
 
