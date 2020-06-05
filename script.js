@@ -33,23 +33,23 @@ const AUTORICHTING_W =  6;
 const AUTORICHTING_NW = 7;
 
 // plaatjes variabelen
-var blauweAutoO;
-var blauweAutoZ;
-var blauweAutoN;
-var blauweAutoW;
-var blauweAutoNO;
-var blauweAutoNW;
-var blauweAutoZO;
-var blauweAutoZW;
+var blauweAutoO=0;
+var blauweAutoZ=0;
+var blauweAutoN=0;
+var blauweAutoW=0;
+var blauweAutoNO=0;
+var blauweAutoNW=0;
+var blauweAutoZO=0;
+var blauweAutoZW=0;
 
-var groeneAutoO;
-var groeneAutoZ;
-var groeneAutoN;
-var groeneAutoW;
-var groeneAutoNO;
-var groeneAutoNW;
-var groeneAutoZO;
-var groeneAutoZW;
+var groeneAutoO=0;
+var groeneAutoZ=0;
+var groeneAutoN=0;
+var groeneAutoW=0;
+var groeneAutoNO=0;
+var groeneAutoNW=0;
+var groeneAutoZO=0;
+var groeneAutoZW=0;
 
 var blauwX = 200; // x-positie van blauwe auto
 var blauwY = 200; // y-positie van blauwe auto
@@ -83,8 +83,10 @@ var score = 0; // aantal behaalde punten
 /* ********************************************* */
 
 function preload() {
+    console.log("preload start");
     // blauwe auto's plaatjes alle posities
     blauweAutoO = loadImage('afbeeldingen/blauwe_auto_O.png');
+    console.log("preload picture 1 ready");
     blauweAutoZ = loadImage('afbeeldingen/blauwe_auto_Z.png');
     blauweAutoN = loadImage('afbeeldingen/blauwe_auto_N.png');
     blauweAutoW = loadImage('afbeeldingen/blauwe_auto_W.png');
@@ -156,14 +158,17 @@ var tekenKogel = function(x, y) {
  * @param {number} x x-coördinaat
  * @param {number} y y-coördinaat
  */
-
-
-
-
-
 var tekenSpeler = function(x, y) {
-    image(blauweAutoZ, x, y, blauwBreedte, blauwLengte);
-    /*image(blauweAutoW, x, y, blauwBreedte, blauwLengte);
+    switch (blauwRichting) {
+      case AUTORICHTING_N:
+        image(blauweAutoN, x, y, blauwBreedte, blauwLengte);
+      break;
+      case AUTORICHTING_Z:
+        image(blauweAutoZ, x, y, blauwBreedte, blauwLengte);
+      break;
+  }
+  /*image(blauweAutoZ, x, y, blauwBreedte, blauwLengte);
+    image(blauweAutoW, x, y, blauwBreedte, blauwLengte);
     image(blauweAutoO, x, y, blauwBreedte, blauwLengte);
     image(blauweAutoN, x, y, blauwBreedte, blauwLengte);
     image(blauweAutoNW, x, y, blauwBreedte, blauwLengte);
@@ -274,7 +279,7 @@ var beweegSpeler = function(){
     }
     if (keyIsDown(UP_ARROW)) {
         if (blauwY > 0) {
-        blauwRichting = AUTORICHTING_N
+        blauwRichting = AUTORICHTING_N;
         futureY = blauwY - 5;
     }
 }
