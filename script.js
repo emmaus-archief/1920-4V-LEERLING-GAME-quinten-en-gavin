@@ -130,7 +130,7 @@ var tekenVeld = function () {
  * @param {number} y y-coördinaat
  */
 var tekenVijand = function(x, y) {  
-     switch (blauwRichting) {
+     switch (groenRichting) {
       case AUTORICHTING_N:
        image(groeneAutoN, x, y, groenBreedte, groenLengte);
       break;
@@ -197,10 +197,21 @@ var tekenSpeler = function(x, y) {
           image(blauweAutoO, x, y, blauwBreedte, blauwLengte);
         break;
 
+        case AUTORICHTING_NW:
+            image(blauweAutoNW, x, y, blauwBreedte, blauwLengte);
+        break;
+        case AUTORICHTING_NO:
+            image(blauweAutoNO, x, y, blauwBreedte, blauwLengte);
+        break;
+        case AUTORICHTING_ZW:
+            image(blauweAutoZW, x, y, blauwBreedte, blauwLengte);
+        break;
+        case AUTORICHTING_ZO:
+            image(blauweAutoZO, x, y, blauwBreedte, blauwLengte);
+        break;
         case AUTORICHTING_W:
             image(blauweAutoW, x, y, blauwBreedte, blauwLengte);
         break;
-        
             
   }
   /*image(blauweAutoZ, x, y, blauwBreedte, blauwLengte);
