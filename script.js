@@ -160,15 +160,26 @@ var tekenKogel = function(x, y) {
  */
 var tekenSpeler = function(x, y) {
     switch (blauwRichting) {
-      case AUTORICHTING_N:
+        case AUTORICHTING_N:
         image(blauweAutoN, x, y, blauwBreedte, blauwLengte);
-      break;
-      case AUTORICHTING_Z:
+        break;
+
+        case AUTORICHTING_Z:
         image(blauweAutoZ, x, y, blauwBreedte, blauwLengte);
-      break;
+        break;
+
+         case AUTORICHTING_O:
+          image(blauweAutoO, x, y, blauwBreedte, blauwLengte);
+        break;
+
+        case AUTORICHTING_W:
+            image(blauweAutoW, x, y, blauwBreedte, blauwLengte);
+        break;
+        
+            
   }
   /*image(blauweAutoZ, x, y, blauwBreedte, blauwLengte);
-    image(blauweAutoW, x, y, blauwBreedte, blauwLengte);
+    image (blauweAutoW, x, y, blauwBreedte, blauwLengte);
     image(blauweAutoO, x, y, blauwBreedte, blauwLengte);
     image(blauweAutoN, x, y, blauwBreedte, blauwLengte);
     image(blauweAutoNW, x, y, blauwBreedte, blauwLengte);
