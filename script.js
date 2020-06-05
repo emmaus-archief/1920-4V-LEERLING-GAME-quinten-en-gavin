@@ -113,9 +113,9 @@ var tekenVeld = function () {
   fill("green");
   rect(20, 20, width - 2 * 20, height - 2 * 20);
   fill("grey")
-  ellipse(640,360,1200,650)
+  ellipse(640,360,1210,680)
   fill("green")
-  ellipse(640,360,800,350)
+  ellipse(640,360,740,310)
 };
 
 
@@ -126,13 +126,13 @@ var tekenVeld = function () {
  */
 var tekenVijand = function(x, y) {   
     image(groeneAutoZ, x, y, groenBreedte, groenLengte);
-    image(groeneAutoW, x, y, groenBreedte, groenLengte);
+    /*image(groeneAutoW, x, y, groenBreedte, groenLengte);
     image(groeneAutoO, x, y, groenBreedte, groenLengte);
     image(groeneAutoN, x, y, groenBreedte, groenLengte);
     image(groeneAutoNW, x, y, groenBreedte, groenLengte);
     image(groeneAutoNO, x, y, groenBreedte, groenLengte);
     image(groeneAutoZW, x, y, groenBreedte, groenLengte);
-    image(groeneAutoZO, x, y, groenBreedte, groenLengte);
+    image(groeneAutoZO, x, y, groenBreedte, groenLengte);*/
 };    
 
 
@@ -307,8 +307,7 @@ var beweegSpeler = function(){
     }
 }
 
-
-
+ 
 /**
  * Zoekt uit of de vijand is geraakt
  * @returns {boolean} true als vijand is geraakt
