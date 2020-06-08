@@ -51,8 +51,10 @@ var groeneAutoNW=0;
 var groeneAutoZO=0;
 var groeneAutoZW=0;
 
-var blauwX = 200; // x-positie van blauwe auto
-var blauwY = 200; // y-positie van blauwe auto
+var finishline=0;
+
+var blauwX = 180; // x-positie van blauwe auto
+var blauwY = 260; // y-positie van blauwe auto
 
 
 var blauwRichting = AUTORICHTING_Z;
@@ -68,8 +70,8 @@ var blauwLengte = 87;
 var kogelX = 0;    // x-positie van kogel
 var kogelY = 0;    // y-positie van kogel
 
-var groenX = 100;   // x-positie van groene auto
-var groenY = 200;   // y-positie van groene auto
+var groenX = 80;   // x-positie van groene auto
+var groenY = 260;   // y-positie van groene auto
 
 var score = 0; // aantal behaalde punten
 
@@ -106,6 +108,7 @@ function preload() {
     groeneAutoZW = loadImage('afbeeldingen/groene_auto_ZW.png');
 
     // finishline plaatje
+    finishline = loadImage('afbeeldingen/finishline.png')
 }
 
 
@@ -120,7 +123,7 @@ var tekenVeld = function () {
   ellipse(640,360,1210,680)
   fill("green")
   ellipse(640,360,740,310)
-    line(45, 360, 500, 360)
+  image(finishline, 36, 280, 234, 100) // finishline
 };
 
 
