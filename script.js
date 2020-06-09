@@ -378,8 +378,7 @@ var beweegSpeler = function(){
     }
 }
 
- collideRectRect(x, y, width, height, x2, y2, width2, height2 )
- collideRectRect(x, y, width, height, x2, y2, width2, height2 )
+ collideRectRect(blauwX, blauwY, blauwBreedte, blauwLengte, cirkelPositieX, cirkelPositieY, kleineCirkelBreedte, kleineCirkelLengte )
 /**
  * Zoekt uit of de vijand is geraakt
  * @returns {boolean} true als vijand is geraakt
