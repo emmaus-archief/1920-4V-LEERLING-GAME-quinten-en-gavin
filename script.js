@@ -41,7 +41,6 @@ var blauweAutoNO=0;
 var blauweAutoNW=0;
 var blauweAutoZO=0;
 var blauweAutoZW=0;
-
 var groeneAutoO=0;
 var groeneAutoZ=0;
 var groeneAutoN=0;
@@ -50,22 +49,19 @@ var groeneAutoNO=0;
 var groeneAutoNW=0;
 var groeneAutoZO=0;
 var groeneAutoZW=0;
-
 var finishline=0;
-
-var blauwX = 180; // x-positie van blauwe auto
-var blauwY = 260; // y-positie van blauwe auto
-
 
 var blauwRichting = AUTORICHTING_Z;
 var groenRichting = AUTORICHTING_Z;
 
+var blauwX = 180; // x-positie van blauwe auto
+var blauwY = 260; // y-positie van blauwe auto
 
-var groenBreedte = 60;
-var blauwBreedte = 65;
-var groenLengte = 85;
+var groenBreedte = 60; // Breedte van groene auto
+var groenLengte = 85; // Lengte van groene auto
+
 var blauwLengte = 87;
-
+var blauwBreedte = 65;
 
 var kogelX = 0;    // x-positie van kogel
 var kogelY = 0;    // y-positie van kogel
@@ -73,6 +69,7 @@ var kogelY = 0;    // y-positie van kogel
 var groenX = 80;   // x-positie van groene auto
 var groenY = 260;   // y-positie van groene auto
 
+// Lengtes, breedtes en posities van beide cirkels
 var kleineCirkelLengte = 310;
 var kleineCirkelBreedte = 740;
 var groteCirkelBreedte = 1210;
@@ -128,9 +125,9 @@ var tekenVeld = function () {
   fill("green");
   rect(20, 20, width - 2 * 20, height - 2 * 20);
   fill("grey")
-  ellipse(cirkelPositieX, cirkelPositieY, groteCirkelBreedte, groteCirkelLengte)
+  ellipse(cirkelPositieX, cirkelPositieY, groteCirkelBreedte, groteCirkelLengte) // buitrand van het circuit
   fill("green")
-  ellipse(cirkelPositieX, cirkelPositieY, kleineCirkelBreedte, kleineCirkelLengte)
+  ellipse(cirkelPositieX, cirkelPositieY, kleineCirkelBreedte, kleineCirkelLengte) // binnenrand van het circuit
   image(finishline, 36, 280, 234, 100) // finishline
 };
 
@@ -220,10 +217,10 @@ var tekenSpeler = function(x, y) {
   
 };
 
-/*function tekenScore() {
+function tekenScore() {
     textSize(24);
     text(""+score, width-100, 50, 50, 50)
-}*/
+}
 
 /**
  * Updatet globale variabelen met positie van vijand of tegenspeler
