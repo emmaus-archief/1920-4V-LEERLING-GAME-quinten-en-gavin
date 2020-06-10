@@ -233,7 +233,10 @@ var tekenSpeler = function(x, y) {
     image(blauweAutoZO, x, y, blauwBreedte, blauwLengte);*/
 };
 
-
+/*function tekenScore() {
+    textSize(24);
+    text(""+score, width-100, 50, 50, 50)
+}*/
 
 /**
  * Updatet globale variabelen met positie van vijand of tegenspeler
@@ -293,15 +296,12 @@ var beweegVijand = function() {
 
     // check of er een botsing is,
     // zo NIET, dan positie updaten
-    if (!collideRectRect(futureX, futureY, groenBreedte, groenLengte,
-                        blauwX, blauwY, blauwBreedte, blauwLengte)) {
+    if (!collideRectRect(futureX, futureY, groenBreedte, groenLengte, blauwX, blauwY, blauwBreedte, blauwLengte) &&
+        !collidePointEllipse(futureX, futureY, cirkelPositieX, cirkelPositieY, kleineCirkelBreedte, kleineCirkelLengte)) {
         groenX = futureX;
         groenY = futureY;
-    }
+    } 
 }
-
-   
-
 
 /**
  * Updatet globale variabelen met positie van kogel of bal
@@ -369,16 +369,19 @@ var beweegSpeler = function(){
         futureY = blauwY + 2.5;
     }
 
-    // check of er een botsing is,
-    // zo NIET, dan positie updaten
-    if (!collideRectRect(futureX, futureY, blauwBreedte, blauwLengte,
-                        groenX, groenY, groenBreedte, groenLengte)) {
+    // ALS er geen botsing is met groene auto EN
+    // geen botsing met midden,
+    // dan positie updaten
+    if (!collideRectRect(futureX, futureY, blauwBreedte, blauwLengte, groenX, groenY, groenBreedte, groenLengte) &&
+        !collidePointEllipse(futureX, futureY, cirkelPositieX, cirkelPositieY, kleineCirkelBreedte, kleineCirkelLengte)) {
         blauwX = futureX;
         blauwY = futureY;
     }
+
 }
 
- collideRectRect(blauwX, blauwY, blauwBreedte, blauwLengte, cirkelPositieX, cirkelPositieY, kleineCirkelBreedte, kleineCirkelLengte )
+
+ 
 /**
  * Zoekt uit of de vijand is geraakt
  * @returns {boolean} true als vijand is geraakt
