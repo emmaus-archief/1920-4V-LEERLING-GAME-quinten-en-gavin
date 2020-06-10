@@ -75,6 +75,8 @@ var groenY = 260;   // y-positie van groene auto
 
 var kleineCirkelLengte = 310;
 var kleineCirkelBreedte = 740;
+var groteCirkelBreedte = 1210;
+var groteCirkelLengte = 680;
 var cirkelPositieX = 640;
 var cirkelPositieY = 360;
 
@@ -126,7 +128,7 @@ var tekenVeld = function () {
   fill("green");
   rect(20, 20, width - 2 * 20, height - 2 * 20);
   fill("grey")
-  ellipse(640,360,1210,680)
+  ellipse(cirkelPositieX, cirkelPositieY, groteCirkelBreedte, groteCirkelLengte)
   fill("green")
   ellipse(cirkelPositieX, cirkelPositieY, kleineCirkelBreedte, kleineCirkelLengte)
   image(finishline, 36, 280, 234, 100) // finishline
@@ -164,14 +166,6 @@ var tekenVijand = function(x, y) {
       case AUTORICHTING_ZO:
         image(groeneAutoZO, x, y, groenBreedte, groenLengte);
       break;  
-    /*image(groeneAutoZ, x, y, groenBreedte, groenLengte);
-    image(groeneAutoW, x, y, groenBreedte, groenLengte);
-    image(groeneAutoO, x, y, groenBreedte, groenLengte);
-    image(groeneAutoN, x, y, groenBreedte, groenLengte);
-    image(groeneAutoNW, x, y, groenBreedte, groenLengte);
-    image(groeneAutoNO, x, y, groenBreedte, groenLengte);
-    image(groeneAutoZW, x, y, groenBreedte, groenLengte);
-    image(groeneAutoZO, x, y, groenBreedte, groenLengte);*/
 };    
 }
 
@@ -223,14 +217,7 @@ var tekenSpeler = function(x, y) {
         break;
             
   }
-  /*image(blauweAutoZ, x, y, blauwBreedte, blauwLengte);
-    image (blauweAutoW, x, y, blauwBreedte, blauwLengte);
-    image(blauweAutoO, x, y, blauwBreedte, blauwLengte);
-    image(blauweAutoN, x, y, blauwBreedte, blauwLengte);
-    image(blauweAutoNW, x, y, blauwBreedte, blauwLengte);
-    image(blauweAutoNO, x, y, blauwBreedte, blauwLengte);
-    image(blauweAutoZW, x, y, blauwBreedte, blauwLengte);
-    image(blauweAutoZO, x, y, blauwBreedte, blauwLengte);*/
+  
 };
 
 /*function tekenScore() {
@@ -297,7 +284,8 @@ var beweegVijand = function() {
     // check of er een botsing is,
     // zo NIET, dan positie updaten
     if (!collideRectRect(futureX, futureY, groenBreedte, groenLengte, blauwX, blauwY, blauwBreedte, blauwLengte) &&
-        !collidePointEllipse(futureX, futureY, cirkelPositieX, cirkelPositieY, kleineCirkelBreedte, kleineCirkelLengte)) {
+        !collidePointEllipse(futureX, futureY, cirkelPositieX, cirkelPositieY, kleineCirkelBreedte, kleineCirkelLengte) ||
+        !collidePointEllipse(futureX, futureY, cirkelPositieX, cirkelPositieY, groteCirkelBreedte, groteCirkelLengte)) {
         groenX = futureX;
         groenY = futureY;
     } 
@@ -373,7 +361,8 @@ var beweegSpeler = function(){
     // geen botsing met midden,
     // dan positie updaten
     if (!collideRectRect(futureX, futureY, blauwBreedte, blauwLengte, groenX, groenY, groenBreedte, groenLengte) &&
-        !collidePointEllipse(futureX, futureY, cirkelPositieX, cirkelPositieY, kleineCirkelBreedte, kleineCirkelLengte)) {
+        !collidePointEllipse(futureX, futureY, cirkelPositieX, cirkelPositieY, kleineCirkelBreedte, kleineCirkelLengte) ||
+        !collidePointEllipse(futureX, futureY, cirkelPositieX, cirkelPositieY, groteCirkelBreedte, groteCirkelLengte)) {
         blauwX = futureX;
         blauwY = futureY;
     }
