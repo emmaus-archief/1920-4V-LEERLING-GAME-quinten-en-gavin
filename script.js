@@ -129,7 +129,7 @@ var tekenVeld = function () {
   fill("green")
   ellipse(cirkelPositieX, cirkelPositieY, kleineCirkelBreedte, kleineCirkelLengte) // binnenrand van het circuit
   image(finishline, 36, 280, 234, 100) // finishline
-  line(500, 360, 700, 360)
+  line(1010,360, 1245, 360)
 };
 
 
