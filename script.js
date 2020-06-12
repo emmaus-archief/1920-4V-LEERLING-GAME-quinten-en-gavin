@@ -227,6 +227,7 @@ var tekenScore = function() {
     console.log("Score: ", score);
     fill("white");
     text("Lap: "+score, 620, 300);
+    
 }
 }
 
