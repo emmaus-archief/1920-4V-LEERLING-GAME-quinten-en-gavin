@@ -237,9 +237,15 @@ var tekenSpeler = function(x, y) {
   
 };
 
-function tekenScore() {
+var tekenScore = function() {
     textSize(24);
-    text(""+score, width-100, 50, 50, 50)
+    console.log("Score: ", score);
+    fill("blue");
+    text("Lap: "+score, 620, 260);
+    textSize(24);
+    console.log("Score: ", score);
+    fill("white");
+    text("Lap: "+score, 620, 300);
 }
 
 /**
@@ -300,7 +306,7 @@ var beweegVijand = function() {
 
     // check of er een botsing is,
     // zo NIET, dan positie updaten
-    if (!collideRectRect(futureX, futureY, groenBreedte, groenLengte, blauwX, blauwY, blauwBreedte, blauwLengte) &&
+    if (!collideRectRect(futureX, futureY, groenBreedte, groenLengte, blauwX, blauwY, blauwBreedte, blauwLengte) ||
         !collidePointEllipse(futureX, futureY, cirkelPositieX, cirkelPositieY, kleineCirkelBreedte, kleineCirkelLengte) ||
         !collidePointEllipse(futureX, futureY, cirkelPositieX, cirkelPositieY, groteCirkelBreedte, groteCirkelLengte)) {
         groenX = futureX;
@@ -459,6 +465,7 @@ function draw() {
       tekenVijand(groenX, groenY);
       tekenKogel(kogelX, kogelY);
       tekenSpeler(blauwX, blauwY);
+      tekenScore();
 
       if (checkGameOver()) {
         spelStatus = GAMEOVER;
