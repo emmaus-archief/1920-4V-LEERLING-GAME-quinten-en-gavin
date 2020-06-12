@@ -229,6 +229,7 @@ var tekenScore = function() {
     text("Lap: "+score, 620, 300);
 }
 
+
 /**
  * Updatet globale variabelen met positie van vijand of tegenspeler
  */
