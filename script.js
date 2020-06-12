@@ -227,20 +227,6 @@ var tekenSpeler = function(x, y) {
     image(blauweAutoZO, x, y, blauwBreedte, blauwLengte);*/
 };
 
-<<<<<<< HEAD
-var tekenScore = function() {
-    textSize(24);
-    console.log("Score: ", score);
-    fill("blue");
-    text("Lap: "+score, 620, 260);
-    textSize(24);
-    console.log("Score: ", score);
-    fill("white");
-    text("Lap: "+score, 620, 300);
-}
-=======
-
->>>>>>> 58d38812f99186cf99adb76af75318c5de7caf73
 
 /**
  * Updatet globale variabelen met positie van vijand of tegenspeler
@@ -300,14 +286,8 @@ var beweegVijand = function() {
 
     // check of er een botsing is,
     // zo NIET, dan positie updaten
-<<<<<<< HEAD
-    if (!collideRectRect(futureX, futureY, groenBreedte, groenLengte, blauwX, blauwY, blauwBreedte, blauwLengte) ||
-        !collidePointEllipse(futureX, futureY, cirkelPositieX, cirkelPositieY, kleineCirkelBreedte, kleineCirkelLengte) ||
-        !collidePointEllipse(futureX, futureY, cirkelPositieX, cirkelPositieY, groteCirkelBreedte, groteCirkelLengte)) {
-=======
     if (!collideRectRect(futureX, futureY, groenBreedte, groenLengte,
                         blauwX, blauwY, blauwBreedte, blauwLengte)) {
->>>>>>> 58d38812f99186cf99adb76af75318c5de7caf73
         groenX = futureX;
         groenY = futureY;
     }
