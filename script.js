@@ -170,6 +170,11 @@ var tekenVijand = function(x, y) {
 }
 
 
+function tekenScore(){
+    tekstSize(20);
+    text(""+score , width-100, 50, 150, 50);
+}
+
 /**
  * Tekent de kogel of de bal
  * @param {number} x x-coördinaat
