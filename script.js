@@ -227,9 +227,8 @@ var tekenScore = function() {
     console.log("Score: ", score);
     fill("white");
     text("Lap: "+score, 620, 300);
-    
 }
-}
+
 
 /**
  * Updatet globale variabelen met positie van vijand of tegenspeler
