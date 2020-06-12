@@ -69,6 +69,11 @@ var kogelY = 0;    // y-positie van kogel
 var groenX = 80;   // x-positie van groene auto
 var groenY = 260;   // y-positie van groene auto
 
+var finishlineX = 36;
+var finishlineY = 280;
+var finishlineBreedte = 234;
+var finishlineLengte = 100;
+
 // Lengtes, breedtes en posities van beide cirkels
 var kleineCirkelLengte = 310;
 var kleineCirkelBreedte = 740;
@@ -380,10 +385,16 @@ var beweegSpeler = function(){
  * Zoekt uit of de groene auto de finishline heeft geraakt
  * @returns {boolean} true als vijand is geraakt
  */
-var checkGroeneAutoHeeftFinislineGeraakt = function() {
+/*var checkGroeneAutoHeeftFinislineGeraakt = function() {
+    var teruggeefWaarde
+    if(collideRectRect(groenX, groenY, groenBreedte, groenLengte, finishlineX, finishlineY, finishlineBreedte, finishlineLengte) 
+       teruggeefWaarde = true;
+    
+        return teruggeefWaarde;
+    
+    }*/
+  
 
-  return false;
-};
 
 
 /**
@@ -392,7 +403,7 @@ var checkGroeneAutoHeeftFinislineGeraakt = function() {
  * @returns {boolean} true als speler is geraakt
  */
 var checkBlauweAutoHeeftFinishlineGeraakt = function() {
-
+    score++;
   return false;
 };
 
@@ -434,8 +445,7 @@ function draw() {
       beweegSpeler();
 
       if (checkBlauweAutoHeeftFinishlineGeraakt()) {
-        // punten erbij
-        // nieuwe vijand maken
+        
       }
 
       if (checkBlauweAutoHeeftFinishlineGeraakt()) {
