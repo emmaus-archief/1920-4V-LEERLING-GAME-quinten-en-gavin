@@ -129,6 +129,7 @@ var tekenVeld = function () {
   fill("green")
   ellipse(cirkelPositieX, cirkelPositieY, kleineCirkelBreedte, kleineCirkelLengte) // binnenrand van het circuit
   image(finishline, 36, 280, 234, 100) // finishline
+  line(500, 360, 700, 360)
 };
 
 
@@ -227,6 +228,7 @@ var tekenScore = function() {
     fill("white");
     text("Lap: "+score, 620, 300);
 }
+
 
 /**
  * Updatet globale variabelen met positie van vijand of tegenspeler
@@ -375,10 +377,10 @@ var beweegSpeler = function(){
 
  
 /**
- * Zoekt uit of de vijand is geraakt
+ * Zoekt uit of de groene auto de finishline heeft geraakt
  * @returns {boolean} true als vijand is geraakt
  */
-var checkVijandGeraakt = function() {
+var checkGroeneAutoHeeftFinislineGeraakt = function() {
 
   return false;
 };
@@ -389,7 +391,7 @@ var checkVijandGeraakt = function() {
  * bijvoorbeeld door botsing met vijand
  * @returns {boolean} true als speler is geraakt
  */
-var checkSpelerGeraakt = function() {
+var checkBlauweAutoHeeftFinishlineGeraakt = function() {
 
   return false;
 };
@@ -431,12 +433,12 @@ function draw() {
       beweegKogel();
       beweegSpeler();
 
-      if (checkVijandGeraakt()) {
+      if (checkBlauweAutoHeeftFinishlineGeraakt()) {
         // punten erbij
         // nieuwe vijand maken
       }
 
-      if (checkSpelerGeraakt()) {
+      if (checkBlauweAutoHeeftFinishlineGeraakt()) {
         // leven eraf of gezondheid verlagen
         // eventueel: nieuwe speler maken
       }
