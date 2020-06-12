@@ -147,10 +147,10 @@ var tekenVijand = function(x, y) {
         image(groeneAutoZ, x, y, groenBreedte, groenLengte);
       break;
       case AUTORICHTING_O:
-        image(groeneAutoO, x, y, groenBreedte, groenLengte);
+        image(groeneAutoO, x, y, groenLengte, groenBreedte);
       break; 
       case AUTORICHTING_W:
-        image(groeneAutoW, x, y, groenBreedte, groenLengte);
+        image(groeneAutoW, x, y, groenLengte, groenBreedte);
       break; 
       case AUTORICHTING_NW:
         image(groeneAutoNW, x, y, groenBreedte, groenLengte);
@@ -195,7 +195,7 @@ var tekenSpeler = function(x, y) {
         break;
 
          case AUTORICHTING_O:
-          image(blauweAutoO, x, y, blauwBreedte, blauwLengte);
+          image(blauweAutoO, x, y, blauwLengte, blauwBreedte);
         break;
 
         case AUTORICHTING_NW:
@@ -211,7 +211,7 @@ var tekenSpeler = function(x, y) {
             image(blauweAutoZO, x, y, blauwBreedte, blauwLengte);
         break;
         case AUTORICHTING_W:
-            image(blauweAutoW, x, y, blauwBreedte, blauwLengte);
+            image(blauweAutoW, x, y, blauwLengte, blauwBreedte);
         break;
             
   }
