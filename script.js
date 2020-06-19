@@ -63,7 +63,7 @@ var blauwLengte = 87; // Breedte van blauwe auto
 var blauwBreedte = 65; // Breedte van blauwe auto
 
 var groenX = 80; // x-positie van groene auto
-var groenY = 360; // y-positie van groene auto
+var groenY = 260; // y-positie van groene auto
 
 var groenBreedte = 60; // Breedte van groene auto
 var groenLengte = 85; // Lengte van groene auto
