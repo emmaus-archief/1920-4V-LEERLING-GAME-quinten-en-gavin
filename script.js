@@ -1,3 +1,4 @@
+  
 /// @ts-check
 /// <reference path=".gitpod/p5.global-mode.d.ts" />
 "use strict";
@@ -244,28 +245,28 @@ var beweegVijand = function() {
 
     if (keyIsDown(65)) {
         if (groenX > 0) {
-        groenRichting = AUTORICHTING_W;
-        futureX = groenX -5;
+            groenRichting = AUTORICHTING_W;
+            futureX = groenX -5;
+        }
     }
-}
 
     if (keyIsDown(68)) {
         if (groenX < 1280) {
-        groenRichting = AUTORICHTING_O;
-        futureX = groenX + 5;
-    }
+            groenRichting = AUTORICHTING_O;
+            futureX = groenX + 5;
+        }
     }
     if (keyIsDown(87)) {
         if (groenY > 0) {
-        groenRichting = AUTORICHTING_N
-        futureY = groenY - 5;
-    }
+            groenRichting = AUTORICHTING_N
+            futureY = groenY - 5;
+        }
 }
     if (keyIsDown(83)) {
         if (groenY < 720) {
-        groenRichting = AUTORICHTING_Z
-        futureY = groenY + 5;
-    }
+            groenRichting = AUTORICHTING_Z
+            futureY = groenY + 5;
+        }
     }
     if (keyIsDown(65) && keyIsDown(87)) {
         groenRichting = AUTORICHTING_NW;
@@ -296,6 +297,9 @@ var beweegVijand = function() {
     if (!collideRectRect(futureX, futureY, groenBreedte, groenLengte, blauwX, blauwY, blauwBreedte, blauwLengte) ||
         !collidePointEllipse(futureX, futureY, cirkelPositieX, cirkelPositieY, kleineCirkelBreedte, kleineCirkelLengte) ||
         !collidePointEllipse(futureX, futureY, cirkelPositieX, cirkelPositieY, groteCirkelBreedte, groteCirkelLengte)) {
+
+        gaatFinishOver(groenY, futureY);
+        
         groenX = futureX;
         groenY = futureY;
     } 
@@ -327,21 +331,21 @@ var beweegSpeler = function(){
 
     if (keyIsDown(RIGHT_ARROW)) {
         if (blauwX < 1280) {
-        blauwRichting = AUTORICHTING_O;
-        futureX = blauwX + 5;
-    }
+            blauwRichting = AUTORICHTING_O;
+            futureX = blauwX + 5;
+        }
     }
     if (keyIsDown(UP_ARROW)) {
         if (blauwY > 0) {
-        blauwRichting = AUTORICHTING_N;
-        futureY = blauwY - 5;
+            blauwRichting = AUTORICHTING_N;
+            futureY = blauwY - 5;
+        }
     }
-}
     if (keyIsDown(DOWN_ARROW)) {
         if (blauwY < 720) {
-        blauwRichting = AUTORICHTING_Z
-        futureY = blauwY + 5;
-    }
+            blauwRichting = AUTORICHTING_Z
+            futureY = blauwY + 5;
+        }
     }
     if (keyIsDown(LEFT_ARROW) && keyIsDown(UP_ARROW)) {
         blauwRichting = AUTORICHTING_NW;
@@ -373,6 +377,13 @@ var beweegSpeler = function(){
     if (!collideRectRect(futureX, futureY, blauwBreedte, blauwLengte, groenX, groenY, groenBreedte, groenLengte) &&
         !collidePointEllipse(futureX, futureY, cirkelPositieX, cirkelPositieY, kleineCirkelBreedte, kleineCirkelLengte) ||
         !collidePointEllipse(futureX, futureY, cirkelPositieX, cirkelPositieY, groteCirkelBreedte, groteCirkelLengte)) {
+            
+            // zoek uit of de auto in de goede richting de
+            // finish over gaat
+            if (gaatFinishOver(blauwY, futureY)) {
+                score++;
+            }
+
         blauwX = futureX;
         blauwY = futureY;
     }
@@ -394,18 +405,16 @@ var beweegSpeler = function(){
     
     }*/
   
+var gaatFinishOver = function(huidigeY, toekomstY) {
+    var finishLineY = 360;
 
+    if (huidigeY < finishLineY && toekomstY >= finishLineY ) {
+        return true;
+    }
 
+    return false;
+}
 
-/**
- * Zoekt uit of de speler is geraakt
- * bijvoorbeeld door botsing met vijand
- * @returns {boolean} true als speler is geraakt
- */
-var checkBlauweAutoHeeftFinishlineGeraakt = function() {
-    score++;
-  return false;
-};
 
 
 /**
@@ -444,14 +453,15 @@ function draw() {
       beweegKogel();
       beweegSpeler();
 
+      /*
       if (checkBlauweAutoHeeftFinishlineGeraakt()) {
         
       }
-
       if (checkBlauweAutoHeeftFinishlineGeraakt()) {
         // leven eraf of gezondheid verlagen
         // eventueel: nieuwe speler maken
       }
+      */
 
       tekenVeld();
       tekenVijand(groenX, groenY);
