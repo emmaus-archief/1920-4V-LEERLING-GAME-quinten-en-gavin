@@ -57,6 +57,8 @@ var eindscherm = 0;
 var blauwRichting = AUTORICHTING_Z;
 var groenRichting = AUTORICHTING_Z;
 
+
+
 var blauwX = 180; // x-positie van blauwe auto
 var blauwY = 260; // y-positie van blauwe auto
 
@@ -97,6 +99,9 @@ var score2 = 0;
 
 function preload() {
     console.log("preload start");
+
+  
+
     // blauwe auto's plaatjes alle posities
     blauweAutoO = loadImage('afbeeldingen/blauwe_auto_O.png');
     console.log("preload picture 1 ready");
@@ -134,12 +139,13 @@ function preload() {
 var tekenVeld = function () {
   fill("green");
   rect(20, 20, width - 2 * 20, height - 2 * 20);
-  fill("grey")
+  fill("grey");
   ellipse(cirkelPositieX, cirkelPositieY, groteCirkelBreedte, groteCirkelLengte) // buitrand van het circuit
-  fill("green")
+  fill("green");
   ellipse(cirkelPositieX, cirkelPositieY, kleineCirkelBreedte, kleineCirkelLengte) // binnenrand van het circuit
   image(finishline, 36, 280, 234, 100) // finishline
-  line(1010,360, 1245, 360)
+  line(1010,360, 1245, 360);
+
 };
 
 
@@ -222,15 +228,16 @@ var tekenScore1 = function() {
     textSize(24);
     console.log("Score: ", score1);
     fill("blue");
-    text("Lap: "+score1, 620, 260);
-    text("/3", 650, 260);
+    text("Lap: "+score1, 620, 340);
+    text("/5", 690, 340);
 }
 
 var tekenScore2 = function() {
     textSize(24);
     console.log("Score: ", score2);
     fill("white");
-    text("Lap: "+score2, 620, 300);
+    text("Lap: "+score2, 620, 400);
+    text("/5", 690, 400);
 
 }
 
@@ -417,7 +424,7 @@ var gaatFinishOver = function(huidigeY, toekomstY) {
  * @returns {boolean} true als het spel is afgelopen
  */
 var checkGameOver = function() {
-    if (score1 >= 3 || score2 >= 3 ) {
+    if (score1 >= 5 || score2 >= 5 ) {
         return true;
     } else {
         return false;
