@@ -412,7 +412,7 @@ var beweegSpeler = function(){
 var gaatFinishOver = function(huidigeY, toekomstY) {
     var finishLineY = 360;
 
-    if (huidigeY < finishLineY && toekomstY >= finishLineY ) {
+    if (huidigeY < finishLineY && toekomstY >= finishLineY ){
         return true;
     }
 
