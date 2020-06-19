@@ -16,9 +16,6 @@
 /* globale variabelen die je gebruikt in je game */
 /* ********************************************* */
 
-
-
-
 const UITLEG = 0;
 const SPELEN = 1;
 const GAMEOVER = 2;
@@ -34,6 +31,7 @@ const AUTORICHTING_W =  6;
 const AUTORICHTING_NW = 7;
 
 // plaatjes variabelen
+<<<<<<< HEAD
 var blauweAutoO =0;
 var blauweAutoZ =0;
 var blauweAutoN =0;
@@ -51,6 +49,25 @@ var groeneAutoNW =0;
 var groeneAutoZO= 0;
 var groeneAutoZW =0;
 var finishline= 0;
+=======
+var blauweAutoO = 0;
+var blauweAutoZ = 0;
+var blauweAutoN = 0;
+var blauweAutoW = 0;
+var blauweAutoNO = 0;
+var blauweAutoNW = 0;
+var blauweAutoZO = 0;
+var blauweAutoZW = 0;
+var groeneAutoO = 0;
+var groeneAutoZ = 0;
+var groeneAutoN = 0;
+var groeneAutoW = 0;
+var groeneAutoNO = 0;
+var groeneAutoNW = 0;
+var groeneAutoZO = 0;
+var groeneAutoZW = 0;
+var finishline = 0;
+>>>>>>> Quinten-branch
 var startscherm = 0;
 var eindscherm = 0;
 
@@ -62,36 +79,37 @@ var groenRichting = AUTORICHTING_Z;
 var blauwX = 180; // x-positie van blauwe auto
 var blauwY = 260; // y-positie van blauwe auto
 
+var blauwLengte = 87; // Breedte van blauwe auto
+var blauwBreedte = 65; // Breedte van blauwe auto
+
+<<<<<<< HEAD
+var kogelX = 0;    // x-positie van kogel
+var kogelY = 0;    // y-positie van kogel
+=======
+var groenX = 80; // x-positie van groene auto
+var groenY = 360; // y-positie van groene auto
+>>>>>>> Quinten-branch
+
 var groenBreedte = 60; // Breedte van groene auto
 var groenLengte = 85; // Lengte van groene auto
 
-var blauwLengte = 87;
-var blauwBreedte = 65;
+var finishlineX = 36; // x-positie  van finishline 
+var finishlineY = 280; // y-positie  van finishline 
 
-var kogelX = 0;    // x-positie van kogel
-var kogelY = 0;    // y-positie van kogel
+var finishlineBreedte = 234; // Breedte van finishline 
+var finishlineLengte = 100; // Lengte van finishline 
 
-var groenX = 80;   // x-positie van groene auto
-var groenY = 260;   // y-positie van groene auto
+var kleineCirkelLengte = 310; // Lengte van kleine cirkel 
+var kleineCirkelBreedte = 740; // Breedte van kleine cirkel
 
-var finishlineX = 36;
-var finishlineY = 280;
-var finishlineBreedte = 234;
-var finishlineLengte = 100;
+var groteCirkelBreedte = 1210; // Breedte van grote cirkel 
+var groteCirkelLengte = 680; // Lengte van grote cirkel
 
-// Lengtes, breedtes en posities van beide cirkels
-var kleineCirkelLengte = 310;
-var kleineCirkelBreedte = 740;
-var groteCirkelBreedte = 1210;
-var groteCirkelLengte = 680;
-var cirkelPositieX = 640;
-var cirkelPositieY = 360;
+var cirkelPositieX = 640; // x-positie  van cirkel
+var cirkelPositieY = 360; // y-positie  van cirkel
 
-
-var score1 = 0; // aantal behaalde punten
-var score2 = 0;
-
-
+var score1 = 0; // aantal behaalde punten van blauwe auto
+var score2 = 0; // aantal behaalde punten van groene auto
 
 
 
@@ -106,7 +124,6 @@ function preload() {
 
     // blauwe auto's plaatjes alle posities
     blauweAutoO = loadImage('afbeeldingen/blauwe_auto_O.png');
-    console.log("preload picture 1 ready");
     blauweAutoZ = loadImage('afbeeldingen/blauwe_auto_Z.png');
     blauweAutoN = loadImage('afbeeldingen/blauwe_auto_N.png');
     blauweAutoW = loadImage('afbeeldingen/blauwe_auto_W.png');
@@ -128,11 +145,10 @@ function preload() {
     // finishline plaatje
     finishline = loadImage('afbeeldingen/finishline.png');
 
-    // scherm plaatje
+    // beginscherm en eindscherm plaatje
     startscherm = loadImage('afbeeldingen/startscherm.jpg');
     eindscherm = loadImage('afbeeldingen/eindscherm.png');
 }
-
 
 
 /**
@@ -146,8 +162,12 @@ var tekenVeld = function () {
   fill("green");
   ellipse(cirkelPositieX, cirkelPositieY, kleineCirkelBreedte, kleineCirkelLengte) // binnenrand van het circuit
   image(finishline, 36, 280, 234, 100) // finishline
+<<<<<<< HEAD
   line(1010,360, 1245, 360);
 
+=======
+  line(1010,360, 1245, 360) // lijn voor halverwege de circuit
+>>>>>>> Quinten-branch
 };
 
 
@@ -156,32 +176,41 @@ var tekenVeld = function () {
  * @param {number} x x-coördinaat
  * @param {number} y y-coördinaat
  */
-var tekenVijand = function(x, y) {  
+var tekenGroenAuto = function(x, y) {  
      switch (groenRichting) {
+
       case AUTORICHTING_N:
        image(groeneAutoN, x, y, groenBreedte, groenLengte);
       break;
+
       case AUTORICHTING_Z:
         image(groeneAutoZ, x, y, groenBreedte, groenLengte);
       break;
+
       case AUTORICHTING_O:
         image(groeneAutoO, x, y, groenLengte, groenBreedte);
       break; 
+
       case AUTORICHTING_W:
         image(groeneAutoW, x, y, groenLengte, groenBreedte);
-      break; 
+      break;
+
       case AUTORICHTING_NW:
         image(groeneAutoNW, x, y, groenBreedte, groenLengte);
-      break; 
+      break;
+
       case AUTORICHTING_NO:
         image(groeneAutoNO, x, y, groenBreedte, groenLengte);
-      break; 
+      break;
+
       case AUTORICHTING_ZW:
         image(groeneAutoZW, x, y, groenBreedte, groenLengte);
-      break; 
+      break;
+
       case AUTORICHTING_ZO:
         image(groeneAutoZO, x, y, groenBreedte, groenLengte);
       break;  
+<<<<<<< HEAD
 };    
 }
 
@@ -194,6 +223,9 @@ var tekenVijand = function(x, y) {
 var tekenKogel = function(x, y) {
 
 
+=======
+    }   
+>>>>>>> Quinten-branch
 };
 
 
@@ -202,39 +234,44 @@ var tekenKogel = function(x, y) {
  * @param {number} x x-coördinaat
  * @param {number} y y-coördinaat
  */
-var tekenSpeler = function(x, y) {
+var tekenBlauwAuto = function(x, y) {
     switch (blauwRichting) {
+
         case AUTORICHTING_N:
-        image(blauweAutoN, x, y, blauwBreedte, blauwLengte);
+            image(blauweAutoN, x, y, blauwBreedte, blauwLengte);
         break;
 
         case AUTORICHTING_Z:
-        image(blauweAutoZ, x, y, blauwBreedte, blauwLengte);
+            image(blauweAutoZ, x, y, blauwBreedte, blauwLengte);
         break;
 
-         case AUTORICHTING_O:
-          image(blauweAutoO, x, y, blauwLengte, blauwBreedte);
+        case AUTORICHTING_O:
+            image(blauweAutoO, x, y, blauwLengte, blauwBreedte);
         break;
 
         case AUTORICHTING_NW:
             image(blauweAutoNW, x, y, blauwBreedte, blauwLengte);
         break;
+
         case AUTORICHTING_NO:
             image(blauweAutoNO, x, y, blauwBreedte, blauwLengte);
         break;
+
         case AUTORICHTING_ZW:
             image(blauweAutoZW, x, y, blauwBreedte, blauwLengte);
         break;
+
         case AUTORICHTING_ZO:
             image(blauweAutoZO, x, y, blauwBreedte, blauwLengte);
         break;
+
         case AUTORICHTING_W:
             image(blauweAutoW, x, y, blauwLengte, blauwBreedte);
         break;       
-  }
-  
+    } 
 };
 
+<<<<<<< HEAD
 var tekenScore1 = function() {
     textSize(24);
     console.log("Score: ", score1);
@@ -251,11 +288,13 @@ var tekenScore2 = function() {
     text("/5", 690, 400);
 
 }
+=======
+>>>>>>> Quinten-branch
 
 /**
- * Updatet globale variabelen met positie van vijand of tegenspeler
+ * Groene auto bewegen
  */
-var beweegVijand = function() {
+var beweegGroenAuto = function() {
       var futureX = groenX;
       var futureY = groenY;
 
@@ -272,18 +311,21 @@ var beweegVijand = function() {
             futureX = groenX + 5;
         }
     }
+
     if (keyIsDown(87)) {
         if (groenY > 0) {
             groenRichting = AUTORICHTING_N
             futureY = groenY - 5;
         }
-}
+    }
+
     if (keyIsDown(83)) {
         if (groenY < 720) {
             groenRichting = AUTORICHTING_Z
             futureY = groenY + 5;
         }
     }
+
     if (keyIsDown(65) && keyIsDown(87)) {
         groenRichting = AUTORICHTING_NW;
         futureX = groenX - 2.5;
@@ -310,13 +352,13 @@ var beweegVijand = function() {
 
     // check of er een botsing is,
     // zo NIET, dan positie updaten
-    if (!collideRectRect(futureX, futureY, groenBreedte, groenLengte, blauwX, blauwY, blauwBreedte, blauwLengte) ||
+    if (!collideRectRect(futureX, futureY, groenBreedte, groenLengte, blauwX, blauwY, blauwBreedte, blauwLengte) &&
         !collidePointEllipse(futureX, futureY, cirkelPositieX, cirkelPositieY, kleineCirkelBreedte, kleineCirkelLengte) ||
         !collidePointEllipse(futureX, futureY, cirkelPositieX, cirkelPositieY, groteCirkelBreedte, groteCirkelLengte)) {
 
        if (gaatFinishOver(groenY, futureY)) {
                 score2++;
-            }
+        }
         
         groenX = futureX;
         groenY = futureY;
@@ -330,22 +372,20 @@ var beweegKogel = function() {
 
 };
 
-
-
 /**
- * Kijkt wat de toetsen/muis etc zijn.
- * Updatet globale variabele blauwX en blauwY
+ * Blauwe auto bewegen
+ * 
  */
-var beweegSpeler = function(){
+var beweegBlauwAuto = function() {
     var futureX = blauwX;
     var futureY = blauwY;
 
     if (keyIsDown(LEFT_ARROW)) {
         if (blauwX > 0) {
-        blauwRichting = AUTORICHTING_W;
-        futureX = blauwX -5;
+            blauwRichting = AUTORICHTING_W;
+            futureX = blauwX -5;
+        }
     }
-}
 
     if (keyIsDown(RIGHT_ARROW)) {
         if (blauwX < 1280) {
@@ -353,18 +393,21 @@ var beweegSpeler = function(){
             futureX = blauwX + 5;
         }
     }
+
     if (keyIsDown(UP_ARROW)) {
         if (blauwY > 0) {
             blauwRichting = AUTORICHTING_N;
             futureY = blauwY - 5;
         }
     }
+
     if (keyIsDown(DOWN_ARROW)) {
         if (blauwY < 720) {
             blauwRichting = AUTORICHTING_Z
             futureY = blauwY + 5;
         }
     }
+
     if (keyIsDown(LEFT_ARROW) && keyIsDown(UP_ARROW)) {
         blauwRichting = AUTORICHTING_NW;
         futureX = blauwX - 2.5;
@@ -401,40 +444,40 @@ var beweegSpeler = function(){
             if (gaatFinishOver(blauwY, futureY)) {
                 score1++;
             }
-        
 
         blauwX = futureX;
         blauwY = futureY;
     }
-
 }
 
+// scorebord van blauwe auto
+var tekenScore1 = function() {
+    textSize(24);
+    console.log("Score: ", score1);
+    fill("blue");
+    text("Lap: "+score1, 620, 260);
+}
 
+// scorebord van groene auto
+var tekenScore2 = function() {
+    textSize(24);
+    console.log("Score: ", score2);
+    fill("white");
+    text("Lap: "+score2, 620, 300);
+}
  
 /**
  * Zoekt uit of de groene auto de finishline heeft geraakt
  * @returns {boolean} true als vijand is geraakt
  */
-/*var checkGroeneAutoHeeftFinislineGeraakt = function() {
-    var teruggeefWaarde
-    if(collideRectRect(groenX, groenY, groenBreedte, groenLengte, finishlineX, finishlineY, finishlineBreedte, finishlineLengte) 
-       teruggeefWaarde = true;
-    
-        return teruggeefWaarde;
-    
-    }*/
   
 var gaatFinishOver = function(huidigeY, toekomstY) {
     var finishLineY = 360;
-
-    if (huidigeY < finishLineY && toekomstY >= finishLineY ){
+    if (huidigeY < finishLineY && toekomstY >= finishLineY) {
         return true;
     }
-
     return false;
 }
-
-
 
 /**
  * Zoekt uit of het spel is afgelopen
@@ -443,9 +486,9 @@ var gaatFinishOver = function(huidigeY, toekomstY) {
 var checkGameOver = function() {
     if (score1 >= 5 || score2 >= 5 ) {
         return true;
-    } else {
+    }   else {
         return false;
-}
+    }   
 }
 
 
@@ -472,11 +515,12 @@ function draw() {
   switch (spelStatus) {
     case UITLEG:
     background(startscherm)
-    if (mouseIsPressed){
+    if (mouseIsPressed) {
         spelStatus = SPELEN;
     }
     break;
     case SPELEN:
+<<<<<<< HEAD
       beweegVijand();
       beweegKogel();
       beweegSpeler();
@@ -498,10 +542,21 @@ function draw() {
       tekenScore1();
       tekenScore2();
       if (checkGameOver()) {
+=======
+    beweegGroenAuto();
+    beweegBlauwAuto();
+    tekenVeld();
+    tekenGroenAuto(groenX, groenY);
+    tekenBlauwAuto(blauwX, blauwY);
+    tekenScore1();
+    tekenScore2();
+
+    if (checkGameOver()) {
+>>>>>>> Quinten-branch
         spelStatus = GAMEOVER;
         background(eindscherm);
-      }
-      case GAMEOVER:
-      break;
+    }
+    case GAMEOVER:
+    break;
   }
 }
