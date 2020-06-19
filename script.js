@@ -34,24 +34,24 @@ const AUTORICHTING_W =  6;
 const AUTORICHTING_NW = 7;
 
 // plaatjes variabelen
-var blauweAutoO=0;
-var blauweAutoZ=0;
-var blauweAutoN=0;
-var blauweAutoW=0;
-var blauweAutoNO=0;
-var blauweAutoNW=0;
-var blauweAutoZO=0;
-var blauweAutoZW=0;
-var groeneAutoO=0;
-var groeneAutoZ=0;
-var groeneAutoN=0;
-var groeneAutoW=0;
-var groeneAutoNO=0;
-var groeneAutoNW=0;
-var groeneAutoZO=0;
-var groeneAutoZW=0;
-var finishline=0;
-var startscherm=0;
+var blauweAutoO =0;
+var blauweAutoZ =0;
+var blauweAutoN =0;
+var blauweAutoW= 0;
+var blauweAutoNO =0;
+var blauweAutoNW= 0;
+var blauweAutoZO= 0;
+var blauweAutoZW= 0;
+var groeneAutoO= 0;
+var groeneAutoZ= 0;
+var groeneAutoN =0;
+var groeneAutoW= 0;
+var groeneAutoNO =0;
+var groeneAutoNW =0;
+var groeneAutoZO= 0;
+var groeneAutoZW =0;
+var finishline= 0;
+var startscherm = 0;
 var eindscherm = 0;
 
 var blauwRichting = AUTORICHTING_Z;
@@ -66,6 +66,8 @@ var groenLengte = 85; // Lengte van groene auto
 var blauwLengte = 87;
 var blauwBreedte = 65;
 
+var kogelX = 0;    // x-positie van kogel
+var kogelY = 0;    // y-positie van kogel
 
 var groenX = 80;   // x-positie van groene auto
 var groenY = 260;   // y-positie van groene auto
@@ -178,6 +180,15 @@ var tekenVijand = function(x, y) {
 }
 
 
+/**
+ * Tekent de kogel of de bal
+ * @param {number} x x-coördinaat
+ * @param {number} y y-coördinaat
+ */
+var tekenKogel = function(x, y) {
+
+
+};
 
 
 /**
@@ -303,6 +314,12 @@ var beweegVijand = function() {
     } 
 }
 
+/**
+ * Updatet globale variabelen met positie van kogel of bal
+ */
+var beweegKogel = function() {
+
+};
 
 
 
@@ -452,7 +469,7 @@ function draw() {
     break;
     case SPELEN:
       beweegVijand();
-      
+      beweegKogel();
       beweegSpeler();
 
       /*
@@ -467,6 +484,7 @@ function draw() {
 
       tekenVeld();
       tekenVijand(groenX, groenY);
+      tekenKogel(kogelX, kogelY);
       tekenSpeler(blauwX, blauwY);
       tekenScore1();
       tekenScore2();
