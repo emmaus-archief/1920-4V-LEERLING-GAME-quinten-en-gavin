@@ -387,6 +387,7 @@ var beweegSpeler = function(){
             if (gaatFinishOver(blauwY, futureY)) {
                 score1++;
             }
+        
 
         blauwX = futureX;
         blauwY = futureY;
