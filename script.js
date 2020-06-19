@@ -218,8 +218,7 @@ var tekenSpeler = function(x, y) {
         break;
         case AUTORICHTING_W:
             image(blauweAutoW, x, y, blauwLengte, blauwBreedte);
-        break;
-            
+        break;       
   }
   
 };
