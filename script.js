@@ -52,6 +52,7 @@ var groeneAutoZO=0;
 var groeneAutoZW=0;
 var finishline=0;
 var startscherm=0;
+var eindscherm = 0;
 
 var blauwRichting = AUTORICHTING_Z;
 var groenRichting = AUTORICHTING_Z;
@@ -122,8 +123,9 @@ function preload() {
     // finishline plaatje
     finishline = loadImage('afbeeldingen/finishline.png');
 
-    // startscherm plaatje
+    // scherm plaatje
     startscherm = loadImage('afbeeldingen/startscherm.jpg');
+    eindscherm = loadImage('afbeeldingen/eindscherm.png');
 }
 
 
@@ -488,7 +490,7 @@ function draw() {
       tekenScore2();
       if (checkGameOver()) {
         spelStatus = GAMEOVER;
-        background('black');
+        background(eindscherm);
       }
       case GAMEOVER:
       break;
