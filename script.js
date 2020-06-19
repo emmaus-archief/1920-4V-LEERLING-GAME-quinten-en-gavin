@@ -137,7 +137,6 @@ var tekenVeld = function () {
   fill("green");
   ellipse(cirkelPositieX, cirkelPositieY, kleineCirkelBreedte, kleineCirkelLengte) // binnenrand van het circuit
   image(finishline, 36, 280, 234, 100) // finishline
-  line(1010,360, 1245, 360) // lijn voor halverwege de circuit
 };
 
 
@@ -224,7 +223,7 @@ var tekenBlauwAuto = function(x, y) {
             image(blauweAutoW, x, y, blauwLengte, blauwBreedte);
         break;       
     } 
-};
+}
 
 
 /**
@@ -250,14 +249,14 @@ var beweegGroenAuto = function() {
 
     if (keyIsDown(87)) {
         if (groenY > 0) {
-            groenRichting = AUTORICHTING_N
+            groenRichting = AUTORICHTING_N;
             futureY = groenY - 5;
         }
     }
 
     if (keyIsDown(83)) {
         if (groenY < 720) {
-            groenRichting = AUTORICHTING_Z
+            groenRichting = AUTORICHTING_Z;
             futureY = groenY + 5;
         }
     }
@@ -300,13 +299,6 @@ var beweegGroenAuto = function() {
         groenY = futureY;
     } 
 }
-
-/**
- * Updatet globale variabelen met positie van kogel of bal
- */
-var beweegKogel = function() {
-
-};
 
 /**
  * Blauwe auto bewegen
