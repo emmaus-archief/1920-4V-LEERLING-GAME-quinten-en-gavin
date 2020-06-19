@@ -225,10 +225,7 @@ var tekenBlauwAuto = function(x, y) {
     } 
 }
 
-
-/**
- * Groene auto bewegen
- */
+// Groene auto beweegt met 'aswd'
 var beweegGroenAuto = function() {
       var futureX = groenX;
       var futureY = groenY;
@@ -300,10 +297,7 @@ var beweegGroenAuto = function() {
     } 
 }
 
-/**
- * Blauwe auto bewegen
- * 
- */
+// Blauwe auto beweegt met pijltjes
 var beweegBlauwAuto = function() {
     var futureX = blauwX;
     var futureY = blauwY;
