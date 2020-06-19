@@ -51,6 +51,7 @@ var groeneAutoNW=0;
 var groeneAutoZO=0;
 var groeneAutoZW=0;
 var finishline=0;
+var startscherm=0;
 
 var blauwRichting = AUTORICHTING_Z;
 var groenRichting = AUTORICHTING_Z;
@@ -120,6 +121,9 @@ function preload() {
 
     // finishline plaatje
     finishline = loadImage('afbeeldingen/finishline.png');
+
+    // startscherm plaatje
+    startscherm = loadImage('afbeeldingen/startscherm.jpg');
 }
 
 
@@ -456,7 +460,7 @@ function setup() {
 function draw() {
   switch (spelStatus) {
     case UITLEG:
-    background('white')
+    background(startscherm)
     if (mouseIsPressed){
         spelStatus = SPELEN;
     }
