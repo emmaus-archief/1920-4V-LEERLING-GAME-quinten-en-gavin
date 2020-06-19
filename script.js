@@ -61,7 +61,7 @@ var blauwLengte = 87; // Breedte van blauwe auto
 var blauwBreedte = 65; // Breedte van blauwe auto
 
 var groenX = 80; // x-positie van groene auto
-var groenY = 260; // y-positie van groene auto
+var groenY = 360; // y-positie van groene auto
 
 var groenBreedte = 60; // Breedte van groene auto
 var groenLengte = 85; // Lengte van groene auto
@@ -283,7 +283,7 @@ var beweegGroenAuto = function() {
 
     // check of er een botsing is,
     // zo NIET, dan positie updaten
-    if (!collideRectRect(futureX, futureY, groenBreedte, groenLengte, blauwX, blauwY, blauwBreedte, blauwLengte) ||
+    if (!collideRectRect(futureX, futureY, groenBreedte, groenLengte, blauwX, blauwY, blauwBreedte, blauwLengte) &&
         !collidePointEllipse(futureX, futureY, cirkelPositieX, cirkelPositieY, kleineCirkelBreedte, kleineCirkelLengte) ||
         !collidePointEllipse(futureX, futureY, cirkelPositieX, cirkelPositieY, groteCirkelBreedte, groteCirkelLengte)) {
 
