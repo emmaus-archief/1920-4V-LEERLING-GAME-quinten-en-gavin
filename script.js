@@ -391,7 +391,8 @@ var tekenScore1 = function() {
     textSize(24);
     console.log("Score: ", score1);
     fill("blue");
-    text("Lap: "+score1, 620, 260);
+    text("Lap: "+score1, 620, 350);
+    text("/5", 690, 350);
 }
 
 // scorebord van groene auto
@@ -399,7 +400,8 @@ var tekenScore2 = function() {
     textSize(24);
     console.log("Score: ", score2);
     fill("white");
-    text("Lap: "+score2, 620, 300);
+    text("Lap: "+score2, 620, 390);
+    text("/5", 690, 390);
 }
  
 /**
