@@ -22,7 +22,7 @@
 const UITLEG = 0;
 const SPELEN = 1;
 const GAMEOVER = 2;
-var spelStatus = SPELEN;
+var spelStatus = UITLEG;
 
 const AUTORICHTING_N =  0;
 const AUTORICHTING_NO = 1;
@@ -426,9 +426,12 @@ var gaatFinishOver = function(huidigeY, toekomstY) {
  * @returns {boolean} true als het spel is afgelopen
  */
 var checkGameOver = function() {
-
-  return false;
-};
+    if (score1 >= 3 || score2 >= 3 ) {
+        return true;
+    } else {
+        return false;
+}
+}
 
 
 /**
@@ -452,6 +455,12 @@ function setup() {
  */
 function draw() {
   switch (spelStatus) {
+    case UITLEG:
+    background('white')
+    if (mouseIsPressed){
+        spelStatus = SPELEN;
+    }
+    break;
     case SPELEN:
       beweegVijand();
       beweegKogel();
@@ -475,7 +484,9 @@ function draw() {
       tekenScore2();
       if (checkGameOver()) {
         spelStatus = GAMEOVER;
+        background('black');
       }
+      case GAMEOVER:
       break;
   }
 }
