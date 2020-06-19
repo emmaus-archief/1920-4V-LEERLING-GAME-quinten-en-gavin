@@ -223,6 +223,7 @@ var tekenScore1 = function() {
     console.log("Score: ", score1);
     fill("blue");
     text("Lap: "+score1, 620, 260);
+    text("/3", 650, 260);
 }
 
 var tekenScore2 = function() {
@@ -230,6 +231,7 @@ var tekenScore2 = function() {
     console.log("Score: ", score2);
     fill("white");
     text("Lap: "+score2, 620, 300);
+
 }
 
 /**
