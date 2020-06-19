@@ -1,5 +1,6 @@
   
-/// @ts-check
+// @ts-nocheck
+
 /// <reference path=".gitpod/p5.global-mode.d.ts" />
 "use strict";
 
@@ -55,7 +56,6 @@ var blauwRichting = AUTORICHTING_Z;
 var groenRichting = AUTORICHTING_Z;
 
 
-
 var blauwX = 180; // x-positie van blauwe auto
 var blauwY = 260; // y-positie van blauwe auto
 
@@ -94,9 +94,6 @@ var score2 = 0; // aantal behaalde punten van groene auto
 
 function preload() {
     console.log("preload start");
-
-  
-
     // blauwe auto's plaatjes alle posities
     blauweAutoO = loadImage('afbeeldingen/blauwe_auto_O.png');
     blauweAutoZ = loadImage('afbeeldingen/blauwe_auto_Z.png');
@@ -136,8 +133,8 @@ var tekenVeld = function () {
   ellipse(cirkelPositieX, cirkelPositieY, groteCirkelBreedte, groteCirkelLengte) // buitrand van het circuit
   fill("green");
   ellipse(cirkelPositieX, cirkelPositieY, kleineCirkelBreedte, kleineCirkelLengte) // binnenrand van het circuit
-  image(finishline, 36, 280, 234, 100) // finishline
-};
+  image(finishline, 36, 280, 234, 100); // finishline
+}
 
 
 /**
@@ -149,38 +146,38 @@ var tekenGroenAuto = function(x, y) {
      switch (groenRichting) {
 
       case AUTORICHTING_N:
-       image(groeneAutoN, x, y, groenBreedte, groenLengte);
+            image(groeneAutoN, x, y, groenBreedte, groenLengte);
       break;
 
       case AUTORICHTING_Z:
-        image(groeneAutoZ, x, y, groenBreedte, groenLengte);
+            image(groeneAutoZ, x, y, groenBreedte, groenLengte);
       break;
 
       case AUTORICHTING_O:
-        image(groeneAutoO, x, y, groenLengte, groenBreedte);
+            image(groeneAutoO, x, y, groenLengte, groenBreedte);
       break; 
 
       case AUTORICHTING_W:
-        image(groeneAutoW, x, y, groenLengte, groenBreedte);
+            image(groeneAutoW, x, y, groenLengte, groenBreedte);
       break;
 
       case AUTORICHTING_NW:
-        image(groeneAutoNW, x, y, groenBreedte, groenLengte);
+            image(groeneAutoNW, x, y, groenBreedte, groenLengte);
       break;
 
       case AUTORICHTING_NO:
-        image(groeneAutoNO, x, y, groenBreedte, groenLengte);
+            image(groeneAutoNO, x, y, groenBreedte, groenLengte);
       break;
 
       case AUTORICHTING_ZW:
-        image(groeneAutoZW, x, y, groenBreedte, groenLengte);
+            image(groeneAutoZW, x, y, groenBreedte, groenLengte);
       break;
 
       case AUTORICHTING_ZO:
-        image(groeneAutoZO, x, y, groenBreedte, groenLengte);
+            image(groeneAutoZO, x, y, groenBreedte, groenLengte);
       break;  
     }   
-};
+}
 
 
 /**
