@@ -84,8 +84,8 @@ var cirkelPositieX = 640;
 var cirkelPositieY = 360;
 
 
-var score = 0; // aantal behaalde punten
-
+var score1 = 0; // aantal behaalde punten
+var score2 = 0;
 
 
 
@@ -224,17 +224,19 @@ var tekenSpeler = function(x, y) {
   
 };
 
-var tekenScore = function() {
+var tekenScore1 = function() {
     textSize(24);
-    console.log("Score: ", score);
+    console.log("Score: ", score1);
     fill("blue");
-    text("Lap: "+score, 620, 260);
-    textSize(24);
-    console.log("Score: ", score);
-    fill("white");
-    text("Lap: "+score, 620, 300);
+    text("Lap: "+score1, 620, 260);
 }
 
+var tekenScore2 = function() {
+    textSize(24);
+    console.log("Score: ", score2);
+    fill("white");
+    text("Lap: "+score2, 620, 300);
+}
 
 /**
  * Updatet globale variabelen met positie van vijand of tegenspeler
@@ -298,7 +300,9 @@ var beweegVijand = function() {
         !collidePointEllipse(futureX, futureY, cirkelPositieX, cirkelPositieY, kleineCirkelBreedte, kleineCirkelLengte) ||
         !collidePointEllipse(futureX, futureY, cirkelPositieX, cirkelPositieY, groteCirkelBreedte, groteCirkelLengte)) {
 
-        gaatFinishOver(groenY, futureY);
+       if (gaatFinishOver(groenY, futureY)) {
+                score2++;
+            }
         
         groenX = futureX;
         groenY = futureY;
@@ -381,7 +385,7 @@ var beweegSpeler = function(){
             // zoek uit of de auto in de goede richting de
             // finish over gaat
             if (gaatFinishOver(blauwY, futureY)) {
-                score++;
+                score1++;
             }
         
 
@@ -409,7 +413,7 @@ var beweegSpeler = function(){
 var gaatFinishOver = function(huidigeY, toekomstY) {
     var finishLineY = 360;
 
-    if (huidigeY < finishLineY && toekomstY >= finishLineY ) {
+    if (huidigeY < finishLineY && toekomstY >= finishLineY ){
         return true;
     }
 
@@ -468,8 +472,8 @@ function draw() {
       tekenVijand(groenX, groenY);
       tekenKogel(kogelX, kogelY);
       tekenSpeler(blauwX, blauwY);
-      tekenScore();
-
+      tekenScore1();
+      tekenScore2();
       if (checkGameOver()) {
         spelStatus = GAMEOVER;
       }
